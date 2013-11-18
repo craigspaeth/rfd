@@ -1,0 +1,114 @@
+mixin large-header(title, light)
+  h3.large-header
+    .large-header-box= title
+    .large-header-arrow-down( class=( light ? 'light-arrow' : '' ) )
+
+mixin web-container(title, imgPrefix, copy)
+  .web-container
+    .web-fg
+      .web-left-frame
+        img.web-left-macbook( src='/images/macbook.png' )
+      .web-right-copy
+        h1= title
+        p= copy
+    ul.web-images
+      for i in [1,2,3]
+        li
+          img( src="/images/#{imgPrefix}#{i}.png" )
+
+doctype 5
+html( lang="en" )
+  head
+    title Rachel Pigott | Design, Film, and Medicine.
+    include ./style.styl
+  body
+
+    //- Sticky Header
+    #header
+      nav
+        a#home-icon( href='#home' ) RP
+        a( href='#campari' ) Campari America
+        a( href='#nofeedigs' ) NoFeeDigs
+        a( href='#david-rapaport-md' ) David Rapaport M.D.
+        a( href='#russels-reserve' ) Russel's Reserve
+        a( href='#photo-video' ) Photo/Video
+        a( href='#resume-contact' ) Resume/Contact
+    
+    //- Homepage
+    #home
+      #home-header
+        h1
+          span.home-r r
+          | ache
+          span.home-l l
+        h2 for design
+      button#home-down-arrow
+
+    //- Campari America
+    mixin large-header( 'Campari America', true )
+    #campari-video
+      #campari-video-copy-container
+        p Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..
+        button#campari-video-play
+      #campari-video-bg
+        img( src='/images/campari.jpg' )
+
+    //- No Fee Digs
+    mixin large-header( 'NoFeeDigs', false )
+    #nofeedigs.white-bg
+      mixin web-container('Website', 'nfd', 'Co-founder of NoFeeDigs. Website (nofeedigs.com) designed to help people find no fee apartments in New York City. Instrumental in business, design, and product development. Created social media.')
+    
+    //- David Rapaport M.D.
+    mixin large-header( 'David Rapaport M.D.', false )
+    #david-rapaport-md.white-bg
+      mixin web-container('Website', 'nfd', "Designed and created identity for David P. Rapaport, MD (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterheads, customized scrubs, water bottles and tote bags; set up all of Dr. Rapaport's social media accounts; as well as filmed and edited promotional videos for his YouTube channel.")
+    .white-bg
+      h2.centered-header Identity
+      ul.two-divided-grid
+        li
+        li
+        li
+        li
+    
+    //- Russel's Reserve
+    mixin large-header( "Russel's Reserve", false )
+    .white-bg
+      h2.centered-header Identity Concepts
+      ul.two-divided-grid
+        li
+        li
+        li
+        li
+
+    //- Photo/Video
+    mixin large-header( "Photo/Video", false )
+    .white-bg
+      ul.two-divided-grid
+        li
+        li
+        li
+        li
+
+    //- Footer
+    #footer
+      a#download-resume Download Resume
+      #contact-box
+        .contact-box-left
+          | L
+          br
+          | T
+          br
+          | E
+        .contact-box-right
+          | New York, NY
+          br
+          | 801 870 5285
+          br
+          a( href='mailto:rachelpigott@gmail.com' ) rachelpigott@gmail.com
+        ul.contact-box-social-media
+          li.twitter
+          li.facebook
+          li.instagram
+    #scripts
+      script( src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" )
+      include ./main.js
