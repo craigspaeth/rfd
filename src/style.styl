@@ -17,6 +17,9 @@ bold()
   text-transform uppercase
   letter-spacing 1px
 
+body, #header, .web-container.web-fixed .web-fg
+  min-width 1020px
+
 body
   font-family Helvetica, Arial, Serif
   color dark-gray
@@ -24,7 +27,6 @@ body
   background-size 70%
   background-attachment fixed
   line-height 1.4em
-  min-width 920px
   &:before
     content '.'
     color transparent
@@ -119,7 +121,7 @@ body.body-init
     position absolute
     top 90%
     left 50%
-    margin-left -20px
+    margin-left -22px
     background url('images/scroll-arrow.svg') center center no-repeat
     background-size 60%
     cursor pointer
@@ -232,6 +234,7 @@ body.body-init
     left -5%
     position relative
     line-height 1.2em
+    background rgba(255,255,255,0.8)
     p
       font-size 13px
     h1
