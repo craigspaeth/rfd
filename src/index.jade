@@ -1,0 +1,206 @@
+mixin large-header(title, light)
+  h3.large-header
+    .large-header-box= title
+    .large-header-arrow-down( class=( light ? 'light-arrow' : '' ) )
+
+mixin web-container(title, len, imgPrefix, href, copy)
+  .web-container
+    .web-fg
+      .web-left-frame
+        img.web-left-macbook( src='/images/macbook.png' )
+      .web-right-copy
+        h1= title
+        p= copy
+        if href.length
+          a.web-link( href='http://' + href, target='_blank' ) Visit website
+    ul.web-images
+      for n, i in new Array(len)
+        li
+          img( src="/images/#{imgPrefix}#{i + 1}.png" )
+
+doctype 5
+html( lang="en" )
+  head
+    title Rachel Pigott | Design, Film, and Medicine.
+    include ./style.styl
+    link( rel='icon', type='image/png', href='images/favicon.ico' )
+  body.body-init
+
+    #container
+    
+      //- Sticky Header
+      #header
+        nav
+          a#home-icon.nav-active( href='#home' ) RP
+          a( href='#campari' ) Campari
+          a( href='#nofeedigs' ) NoFeeDigs
+          a( href='#medical' ) Rapaport & JTav
+          a( href='#russels-reserve' ) Russell's Reserve
+          a( href='#photo-video' ) Photo/Video
+          a( href='#footer' ) Resume/Contact
+      
+      //- Homepage
+      #home
+        #home-header
+          h1
+            span.home-r r
+            | ache
+            span.home-l l
+          h2 for design
+        button#home-down-arrow
+
+      //- Campari America
+      #campari
+        mixin large-header( 'Campari America', true )
+        #campari-video
+          #campari-video-copy-container
+            p Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..
+            button#campari-video-play
+          #campari-video-bg
+            img( src='/images/campari.jpg' )
+          video#campari-video-player( controls='controls' )
+            source( src='videos/campari.mp4', type='video/mp4' )
+            | Your browser doesn't support HTML5 video, please see this
+            a( href='https://vimeo.com/72108093' ) on vimeo.
+            | .
+
+
+      //- No Fee Digs
+      #nofeedigs
+        mixin large-header( 'NoFeeDigs', false )
+        .white-bg
+          mixin web-container('NoFeeDigs Website', 3, 'nfd/', 'nofeedigs.com', "Co-founder of NoFeeDigs. Website (nofeedigs.com) designed to help people find no fee apartments in New York City. I was instrumental in business, design and product development, and created social media.")
+          h2.centered-header NoFeeDigs Identity
+          ul.two-divided-grid
+            for n, i in new Array(6)
+              li
+                img( src="images/nfd-identity/#{i + 1}.png" )
+
+      //- Medical Design
+      #medical
+        mixin large-header( 'Rapaport & JTav', false )
+        .white-bg
+          mixin web-container('David Rapaport, M.D. Website', 6, 'dr-web/', '', "Designed and created identity for Dr. David P. Rapaport, M.D. (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterheads, customized scrubs, water bottles and tote bags; set up all of Dr. Rapaport's social media accounts; as well as filmed and edited promotional videos for his YouTube channel.")
+          h2.centered-header David Rapaport, M.D. Identity
+          ul.two-divided-grid
+            li.two-grid-wide
+              img( src="images/dr-identity/1.jpg" )
+            li.two-grid-wide
+              img( src="images/dr-identity/2.jpg" )
+            li.two-grid-wide
+              img( src="images/dr-identity/3.jpg" )
+            li.two-grid-wide
+              img( src="images/dr-identity/4.png" )
+          ul.two-divided-grid
+            li
+              img( src="images/dr-identity/5.png" )
+            li
+              img( src="images/dr-identity/6.png" )
+            li
+              img( src="images/dr-identity/7.png" )
+            li
+              img( src="images/dr-identity/8.png" )
+            li
+              img( src="images/dr-identity/9.jpg" )
+            li
+              img( src="images/dr-identity/10.png" )
+
+          //- Coolspa
+          mixin web-container('CoolSpa Fifth Avenue', 1, 'coolspa-web/', '', "Designed, created identity, and marking for CoolSpa Fifth Avenue (founded by Dr. David P. Rapaport, a Harvard/NYU trained plastic surgeon) including: logo, website, and promotion material (including male and female patient brochures, advertisements that were in New York Magazine, event invitations, water bottles, tote bags, refer-a-friend cards, etc.). CoolCab was a concept design for taking CoolSculpting to the next level-- on-the-go (an idea where one could comfortably enjoy CoolSculpting and a massage via CoolCab transportation from an airport to their hotel or vice versa).")
+          h2.centered-header CoolSpa Fifth Avenue
+          ul.two-divided-grid
+            li.two-grid-wide
+              img( src="images/coolspa/l.png" )
+          ul.two-divided-grid
+            li
+              img( src="images/coolspa/1.jpg" )
+            li
+              img( src="images/coolspa/2.png" )
+            li
+              img( src="images/coolspa/3.png" )
+            li
+              img( src="images/coolspa/4.jpg" )
+          ul.two-divided-grid
+            li.two-grid-wide
+              img( src="images/coolspa/b1.jpg" )
+            li.two-grid-wide
+              img( src="images/coolspa/b2.jpg" )
+          ul.two-divided-grid
+            li.two-grid-wide
+              img( src="images/coolspa/row.jpg" )
+              
+            
+          mixin web-container('JTav Clinical Skincare Website', 6, 'jtav/', 'jtavclinicalskincare.com', "Designed and created website for Esthetician Joie Tavernise (JTav Clinical Skin Care); set up all of Joie's social media accounts; photographed Joie, her office and employees for website and promotional material; as well as filmed and edited a video to promote Joie's Ultherapy practice (for her website, Vimeo and YouTube channel).")
+      
+      //- Russel's Reserve
+      #russels-reserve
+        mixin large-header( "Russel's Reserve", false )
+        .white-bg
+          h2.centered-header Identity Concepts
+          ul.two-divided-grid
+            li
+              img( src="images/rr/1.jpg" )
+            li
+              img( src="images/rr/2.jpg" )
+            li
+              img( src="images/rr/3.jpg" )
+            li
+              img( src="images/rr/4.jpg" )
+          ul.two-divided-grid
+            li.two-grid-wide
+              img( src="images/rr/s2.jpg" )
+          ul.two-divided-grid
+            li.two-grid-wide
+              img( src="images/rr/6.jpg" )
+            li.two-grid-wide
+              img( src="images/rr/8.jpg" )
+            li.two-grid-wide
+              img( src="images/rr/9.jpg" )
+            li.two-grid-wide
+              img( src="images/rr/10.jpg" )
+            li.two-grid-wide
+              img( src="images/rr/s1.jpg" )
+
+      //- Photo/Video
+      #photo-video
+        mixin large-header( "Photo/Video", false )
+        .white-bg
+          video.pv-video-full( loop=true, autoplay='autoplay', muted=true )
+            source( src='pv/2.mp4', type='video/mp4' )
+          .pv-two
+            img( src='pv/1.jpg', style='width: 38.28%; margin-bottom: -1px' )
+            img( src='pv/3.jpg', style='width: 61.72%' )
+          video.pv-video-full( loop=true, autoplay='autoplay', muted=true )
+            source( src='pv/5.mp4', type='video/mp4' )
+          .pv-two
+            video( loop=true, autoplay='autoplay', muted=true, style='width: 50%' )
+              source( src='pv/4.mp4', type='video/mp4' )
+            video( loop=true, autoplay='autoplay', muted=true, style='width: 50%' )
+              source( src='pv/6.mp4', type='video/mp4' )
+      
+      //- Footer
+      #footer-container
+        #footer
+          a#download-resume( href='resume.pdf', _target='blank' ) Download Resume
+          #contact-box
+            .contact-box-left
+              | L
+              br
+              | T
+              br
+              | E
+            .contact-box-right
+              | New York, NY
+              br
+              | 801 870 5285
+              br
+              a( href='mailto:rachelpigott@gmail.com' ) rachelpigott@gmail.com
+            ul.contact-box-social-media
+              li.twitter
+              li.facebook
+              li.instagram
+
+    #scripts
+      script( src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" )
+      script( src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" )
+      include ./main.js

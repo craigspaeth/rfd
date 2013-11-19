@@ -1,0 +1,697 @@
+<!DOCTYPE html><html lang="en"><head><title>Rachel Pigott | Design, Film, and Medicine.</title><style type="text/css">html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+body {
+  font-family: Helvetica, Arial, Serif;
+  color: #222;
+  font-size: 15px;
+  -webkit-background-size: 70%;
+  -moz-background-size: 70%;
+  background-size: 70%;
+  background-attachment: fixed;
+  line-height: 1.4em;
+  min-width: 920px;
+}
+body:before {
+  content: '.';
+  color: transparent;
+  background: url("/images/ajax-loader.gif") #fff center center no-repeat;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+a {
+  color: #222;
+}
+a,
+button {
+  outline: none;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+img {
+  display: block;
+}
+body.body-init:before {
+  display: block;
+}
+body.body-init #container {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+body.body-init #home-down-arrow,
+body.body-init #header {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+#container {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  background: url("/images/brick.jpg");
+}
+#home-down-arrow {
+  -webkit-transition: opacity 1s ease-in 1s;
+  -moz-transition: opacity 1s ease-in 1s;
+  -o-transition: opacity 1s ease-in 1s;
+  -ms-transition: opacity 1s ease-in 1s;
+  transition: opacity 1s ease-in 1s;
+}
+#header {
+  background: rgba(0,0,0,0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+#header nav {
+  font-weight: bold;
+}
+#header nav a {
+  color: #555;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 17px;
+  padding-left: 0;
+  font-size: 13px;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  -ms-transition: color 0.2s;
+  transition: color 0.2s;
+}
+#header nav a:nth-child(2),
+#header nav a:first-child {
+  padding-left: 17px;
+}
+#header nav a.nav-active {
+  color: #3a814f;
+}
+#header nav #home-icon {
+  color: #eee;
+  border-right: 1px solid #555;
+}
+#home {
+  position: relative;
+}
+#home #home-header {
+  text-align: center;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 100px;
+}
+#home #home-header h2,
+#home #home-header h1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+#home #home-header h1 {
+  display: block;
+  font-size: 40px;
+  letter-spacing: 10px;
+}
+#home #home-header h2 {
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 15px;
+}
+#home #home-header .home-r,
+#home #home-header .home-l {
+  color: #3a814f;
+}
+#home #home-down-arrow {
+  border: 2px solid #222;
+  padding: 20px;
+  margin: auto;
+  display: block;
+  background: transparent;
+  position: absolute;
+  top: 90%;
+  left: calc(50% - 20px);
+  background: url("images/scroll-arrow.svg") center center no-repeat;
+  -webkit-background-size: 60%;
+  -moz-background-size: 60%;
+  background-size: 60%;
+  cursor: pointer;
+}
+.large-header {
+  background: rgba(0,0,0,0.85);
+  width: 100%;
+  padding: 150px 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.large-header .large-header-box {
+  margin: auto;
+  border: 3px solid #eee;
+  color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  letter-spacing: 15px;
+  font-size: 40px;
+  padding: 50px 60px;
+  display: inline-block;
+}
+.large-header .large-header-arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 20px solid rgba(0,0,0,0.85);
+  position: absolute;
+  left: calc(50% - 30px);
+  bottom: -20px;
+}
+.large-header .large-header-arrow-down.light-arrow {
+  border-top-color: rgba(35,35,35,0.85);
+}
+#campari-video {
+  position: relative;
+  text-align: center;
+}
+#campari-video #campari-video-copy-container {
+  width: 505px;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 250px);
+  z-index: 2;
+}
+#campari-video #campari-video-copy-container #campari-video-play {
+  padding: 25px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  background: url("images/play-arrow.svg") no-repeat 90% 50% transparent;
+  -webkit-background-size: 60%;
+  -moz-background-size: 60%;
+  background-size: 60%;
+  display: inline-block;
+  margin-top: 30px;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+#campari-video #campari-video-copy-container #campari-video-play:hover,
+#campari-video #campari-video-copy-container #campari-video-play:active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#campari-video #campari-video-copy-container p {
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  display: inline-block;
+  text-align: left;
+  line-height: 1.8em;
+}
+#campari-video #campari-video-bg {
+  background: #000;
+}
+#campari-video #campari-video-bg img {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  width: 100%;
+}
+#campari-video #campari-video-player {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 2;
+  display: none;
+}
+.white-bg {
+  background: #fff;
+  width: 100%;
+  padding: 100px 55px;
+}
+.web-container {
+  zoom: 1;
+  position: relative;
+  margin-bottom: 200px;
+}
+.web-container:before,
+.web-container:after {
+  content: "";
+  display: table;
+}
+.web-container:after {
+  clear: both;
+}
+.web-container .web-images,
+.web-container .web-left-frame {
+  width: 80%;
+}
+.web-container .web-left-frame {
+  float: left;
+  position: relative;
+}
+.web-container .web-images {
+  overflow: hidden;
+  padding: 2.7% 9.6% 21% 9.6%;
+}
+.web-container .web-images li {
+  width: 100%;
+}
+.web-container .web-images li img {
+  width: 100%;
+}
+.web-container .web-left-macbook {
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 9999px solid #fff;
+}
+.web-container .web-right-copy {
+  float: right;
+  width: 20%;
+  padding: 3% 0;
+  left: -5%;
+  position: relative;
+  line-height: 1.2em;
+}
+.web-container .web-right-copy p {
+  font-size: 13px;
+}
+.web-container .web-right-copy h1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  line-height: 1.2em;
+}
+.web-container .web-fg {
+  height: 500px;
+  position: absolute;
+}
+.web-container.web-fixed .web-fg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 100px 55px;
+}
+.web-container.web-fixed .web-left-macbook {
+  border-top: 50px solid #fff;
+  position: absolute;
+  top: -50px;
+}
+.web-container.web-fixed .web-right-copy {
+  border-bottom: 2000px solid #fff;
+  z-index: -1;
+}
+.web-container.web-end .web-fg {
+  bottom: 0;
+  position: absolute;
+}
+.web-container.web-end .web-left-macbook {
+  border-bottom: 0;
+  border-top: 1000px solid #fff;
+  top: -1000px;
+  position: absolute;
+}
+.centered-header {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 30px 0;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.two-divided-grid {
+  border-top: 1px solid #eee;
+  zoom: 1;
+  margin-bottom: 100px;
+}
+.two-divided-grid:before,
+.two-divided-grid:after {
+  content: "";
+  display: table;
+}
+.two-divided-grid:after {
+  clear: both;
+}
+.two-divided-grid + .two-divided-grid {
+  margin-top: -100px;
+}
+.two-divided-grid li {
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+  width: 50%;
+  display: block;
+  height: 500px;
+  float: left;
+  text-align: center;
+  line-height: 500px;
+}
+.two-divided-grid li.two-grid-wide {
+  width: 100%;
+  border-right: 0 !important;
+  height: auto;
+}
+.two-divided-grid li:nth-child(2n+1) {
+  border-right: 1px solid #eee;
+}
+.two-divided-grid img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+#footer-container {
+  position: relative;
+}
+#footer {
+  width: 400px;
+  height: 300px;
+  margin: auto;
+  position: absolute;
+  top: calc(50% - 150px);
+  left: calc(50% - 200px);
+}
+#footer #download-resume {
+  background: #000;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+#footer #download-resume:hover,
+#footer #download-resume:active {
+  background: #3a814f;
+}
+#footer #contact-box {
+  padding: 40px;
+  line-height: 2em;
+  border: 2px solid #000;
+  zoom: 1;
+}
+#footer #contact-box:before,
+#footer #contact-box:after {
+  content: "";
+  display: table;
+}
+#footer #contact-box:after {
+  clear: both;
+}
+#footer #contact-box .contact-box-left {
+  width: 50px;
+  float: left;
+}
+#footer #contact-box .contact-box-right {
+  float: left;
+}
+.pv-video-full {
+  width: 100%;
+  display: block;
+}
+.pv-two {
+  zoom: 1;
+  background: #000;
+}
+.pv-two:before,
+.pv-two:after {
+  content: "";
+  display: table;
+}
+.pv-two:after {
+  clear: both;
+}
+.pv-two img,
+.pv-two video {
+  float: left;
+}
+.web-link {
+  color: #3a814f;
+  margin: 15px 0;
+  display: block;
+}
+</style><link rel="icon" type="image/png" href="images/favicon.ico"></head><body class="body-init"><div id="container"><div id="header"><nav><a id="home-icon" href="#home" class="nav-active">RP</a><a href="#campari">Campari</a><a href="#nofeedigs">NoFeeDigs</a><a href="#medical">Rapaport & JTav</a><a href="#russels-reserve">Russell's Reserve</a><a href="#photo-video">Photo/Video</a><a href="#footer">Resume/Contact</a></nav></div><div id="home"><div id="home-header"><h1><span class="home-r">r</span>ache<span class="home-l">l</span></h1><h2>for design</h2></div><button id="home-down-arrow"></button></div><div id="campari"><h3 class="large-header"><div class="large-header-box">Campari America</div><div class="large-header-arrow-down light-arrow"></div></h3><div id="campari-video"><div id="campari-video-copy-container"><p>Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..</p><button id="campari-video-play"></button></div><div id="campari-video-bg"><img src="/images/campari.jpg"></div><video id="campari-video-player" controls="controls"><source src="videos/campari.mp4" type="video/mp4">Your browser doesn't support HTML5 video, please see this<a href="https://vimeo.com/72108093">on vimeo.</a>.</video></div></div><div id="nofeedigs"><h3 class="large-header"><div class="large-header-box">NoFeeDigs</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>NoFeeDigs Website</h1><p>Co-founder of NoFeeDigs. Website (nofeedigs.com) designed to help people find no fee apartments in New York City. I was instrumental in business, design and product development, and created social media.</p><a href="http://nofeedigs.com" target="_blank" class="web-link">Visit website</a></div></div><ul class="web-images"><li><img src="/images/nfd/1.png"/></li><li><img src="/images/nfd/2.png"/></li><li><img src="/images/nfd/3.png"/></li></ul></div><h2 class="centered-header">NoFeeDigs Identity</h2><ul class="two-divided-grid"><li><img src="images/nfd-identity/1.png"></li><li><img src="images/nfd-identity/2.png"></li><li><img src="images/nfd-identity/3.png"></li><li><img src="images/nfd-identity/4.png"></li><li><img src="images/nfd-identity/5.png"></li><li><img src="images/nfd-identity/6.png"></li></ul></div></div><div id="medical"><h3 class="large-header"><div class="large-header-box">Rapaport &amp; JTav</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>David Rapaport, M.D. Website</h1><p>Designed and created identity for Dr. David P. Rapaport, M.D. (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterheads, customized scrubs, water bottles and tote bags; set up all of Dr. Rapaport's social media accounts; as well as filmed and edited promotional videos for his YouTube channel.</p></div></div><ul class="web-images"><li><img src="/images/dr-web/1.png"/></li><li><img src="/images/dr-web/2.png"/></li><li><img src="/images/dr-web/3.png"/></li><li><img src="/images/dr-web/4.png"/></li><li><img src="/images/dr-web/5.png"/></li><li><img src="/images/dr-web/6.png"/></li></ul></div><h2 class="centered-header">David Rapaport, M.D. Identity</h2><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/dr-identity/1.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/2.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/3.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/4.png"></li></ul><ul class="two-divided-grid"><li><img src="images/dr-identity/5.png"></li><li><img src="images/dr-identity/6.png"></li><li><img src="images/dr-identity/7.png"></li><li><img src="images/dr-identity/8.png"></li><li><img src="images/dr-identity/9.jpg"></li><li><img src="images/dr-identity/10.png"></li></ul><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>CoolSpa Fifth Avenue</h1><p>Designed, created identity, and marking for CoolSpa Fifth Avenue (founded by Dr. David P. Rapaport, a Harvard/NYU trained plastic surgeon) including: logo, website, and promotion material (including male and female patient brochures, advertisements that were in New York Magazine, event invitations, water bottles, tote bags, refer-a-friend cards, etc.). CoolCab was a concept design for taking CoolSculpting to the next level-- on-the-go (an idea where one could comfortably enjoy CoolSculpting and a massage via CoolCab transportation from an airport to their hotel or vice versa).</p></div></div><ul class="web-images"><li><img src="/images/coolspa-web/1.png"/></li></ul></div><h2 class="centered-header">CoolSpa Fifth Avenue</h2><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/l.png"></li></ul><ul class="two-divided-grid"><li><img src="images/coolspa/1.jpg"></li><li><img src="images/coolspa/2.png"></li><li><img src="images/coolspa/3.png"></li><li><img src="images/coolspa/4.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/b1.jpg"></li><li class="two-grid-wide"><img src="images/coolspa/b2.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/row.jpg"></li></ul><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>JTav Clinical Skincare Website</h1><p>Designed and created website for Esthetician Joie Tavernise (JTav Clinical Skin Care); set up all of Joie's social media accounts; photographed Joie, her office and employees for website and promotional material; as well as filmed and edited a video to promote Joie's Ultherapy practice (for her website, Vimeo and YouTube channel).</p><a href="http://jtavclinicalskincare.com" target="_blank" class="web-link">Visit website</a></div></div><ul class="web-images"><li><img src="/images/jtav/1.png"/></li><li><img src="/images/jtav/2.png"/></li><li><img src="/images/jtav/3.png"/></li><li><img src="/images/jtav/4.png"/></li><li><img src="/images/jtav/5.png"/></li><li><img src="/images/jtav/6.png"/></li></ul></div></div></div><div id="russels-reserve"><h3 class="large-header"><div class="large-header-box">Russel's Reserve</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><h2 class="centered-header">Identity Concepts</h2><ul class="two-divided-grid"><li><img src="images/rr/1.jpg"></li><li><img src="images/rr/2.jpg"></li><li><img src="images/rr/3.jpg"></li><li><img src="images/rr/4.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/rr/s2.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/rr/6.jpg"></li><li class="two-grid-wide"><img src="images/rr/8.jpg"></li><li class="two-grid-wide"><img src="images/rr/9.jpg"></li><li class="two-grid-wide"><img src="images/rr/10.jpg"></li><li class="two-grid-wide"><img src="images/rr/s1.jpg"></li></ul></div></div><div id="photo-video"><h3 class="large-header"><div class="large-header-box">Photo/Video</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><video loop autoplay="autoplay" muted class="pv-video-full"><source src="pv/2.mp4" type="video/mp4"></video><div class="pv-two"><img src="pv/1.jpg" style="width: 38.28%; margin-bottom: -1px"><img src="pv/3.jpg" style="width: 61.72%"></div><video loop autoplay="autoplay" muted class="pv-video-full"><source src="pv/5.mp4" type="video/mp4"></video><div class="pv-two"><video loop autoplay="autoplay" muted style="width: 50%"><source src="pv/4.mp4" type="video/mp4"></video><video loop autoplay="autoplay" muted style="width: 50%"><source src="pv/6.mp4" type="video/mp4"></video></div></div></div><div id="footer-container"><div id="footer"><a id="download-resume" href="resume.pdf" _target="blank">Download Resume</a><div id="contact-box"><div class="contact-box-left">L<br>T<br>E</div><div class="contact-box-right">New York, NY<br>801 870 5285<br><a href="mailto:rachelpigott@gmail.com">rachelpigott@gmail.com</a></div><ul class="contact-box-social-media"><li class="twitter"></li><li class="facebook"></li><li class="instagram"></li></ul></div></div></div></div><div id="scripts"><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script><script type="text/javascript">
+var TOP_PADDING = 100,
+    MACBOOK_HEIGHT = 500,
+    DEBOUNCE_INT = 100;
+
+$(function() {
+  var bgImg = new Image
+  bgImg.src = '/images/brick.jpg'
+  bgImg.onload = function() {
+    $('body').removeClass('body-init');
+  }
+  $(window).on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT));
+  $(window).on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
+  $(window).on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
+  $(window).on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
+  resizeHomeToViewport();
+});
+
+// 
+// Pop lock the macbook on scroll
+// 
+var popLockMacbook = function() {
+  var $els = $($('.web-container').get().reverse());
+  $els.each(function() {
+    if (relativeToEl(this) == 'between') {
+      $(this).removeClass('web-end').addClass('web-fixed');
+    } else if (relativeToEl(this) == 'past') {
+      $(this).removeClass('web-fixed').addClass('web-end');
+    } else if (relativeToEl(this) == 'before') {
+      $(this).removeClass('web-fixed web-end')
+    }
+  });
+};
+
+var relativeToEl = function(el) {
+  var $el = $(el),
+      winTop = $(window).scrollTop(),
+      winBottom = $(window).scrollTop() + $(window).height(),
+      elTop = $el.offset().top,
+      elBottom = $el.offset().top + $el.height();
+  if (winTop + TOP_PADDING > elTop && winTop + MACBOOK_HEIGHT + TOP_PADDING <= elBottom) {
+    return 'between';
+  } else if(winTop + MACBOOK_HEIGHT + TOP_PADDING >= elBottom) {
+    return 'past';
+  } else if(winTop < elTop) {
+    return 'before';
+  }
+}
+
+//
+// Clicking play runs the campari video
+// 
+$('#campari-video-play').click(function() {
+  $('#campari-video-player').show()[0].play()
+});
+
+// 
+// Homepage hero unit scales to the height of the viewport
+// 
+var resizeHomeToViewport = function() {
+  $('#home, #footer-container').height($(window).height());
+}
+
+// 
+// Highlight nav section as you scroll
+//  
+var highlightNav = function() {
+  var $els = $($('.large-header').get().reverse());
+  $('#header nav a').removeClass('nav-active');
+  if (($(window).height() + $(window).scrollTop() >= $(document).height())
+      || ($(window).scrollTop() + 220 > $("#footer").offset().top)) {
+    $('#header nav a:last-child').addClass('nav-active');
+  } else {
+    $els.each(function(i) {
+      if (relativeToEl(this) == 'between' || relativeToEl(this) == 'past' && !$('.nav-active').length) {
+        $('#header nav a:nth-child(' + ($els.length - i + 1) + ')').addClass('nav-active');
+      }
+    });
+  }
+}
+
+// 
+// Fade in the header as you scroll
+// 
+var fadeInHeader = function() {
+  $('#header').css({ opacity: $(window).scrollTop() / $(window).height() });
+}
+
+// 
+// Animate scroll to id
+// 
+var scrollToEl = function($el) {
+  $('html, body').animate({ scrollTop: $el.offset().top }, 1000);
+}
+$('#home-down-arrow').click(function() {
+  scrollToEl($('#campari'));
+});
+$('#header nav a').click(function() {
+  scrollToEl($($(this).attr('href')));
+  return false
+});</script></div></body></html>
