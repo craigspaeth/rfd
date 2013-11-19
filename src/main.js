@@ -13,6 +13,9 @@ $(function() {
   $(window).on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
   $(window).on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
   resizeHomeToViewport();
+  if (navigator.userAgent.match('Safari') && navigator.userAgent.match('Version/5')) {
+    $('html').addClass('safari5');
+  }
 });
 
 // 

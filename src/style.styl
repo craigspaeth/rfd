@@ -256,9 +256,10 @@ body.body-init
       border-top 50px solid white
       position absolute
       top -50px
+      z-index 2
     .web-right-copy
       border-bottom 2000px solid white
-      z-index -1
+      z-index 0
   &.web-end
     .web-fg
       bottom 0
@@ -352,3 +353,12 @@ body.body-init
   color green-color
   margin 15px 0
   display block
+
+// 
+// Safari 5
+// 
+html.safari5
+  #home-down-arrow
+    padding 15px 20px
+  #campari-video-play
+    padding 20px 26px
