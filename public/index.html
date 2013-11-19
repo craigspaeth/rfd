@@ -190,11 +190,15 @@ body.body-init #header {
   padding: 17px;
   padding-left: 0;
   font-size: 13px;
-  -webkit-transition: color 0.2s;
-  -moz-transition: color 0.2s;
-  -o-transition: color 0.2s;
-  -ms-transition: color 0.2s;
-  transition: color 0.2s;
+  -webkit-transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  -moz-transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  -o-transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  -ms-transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+#header nav a:hover,
+#header nav a:active {
+  color: #3a814f;
 }
 #header nav a:nth-child(2),
 #header nav a:first-child {
@@ -206,6 +210,12 @@ body.body-init #header {
 #header nav #home-icon {
   color: #eee;
   border-right: 1px solid #555;
+}
+#header nav #home-icon:hover,
+#header nav #home-icon:active {
+  background-color: #3a814f;
+  color: #fff;
+  border-color: #3a814f;
 }
 #home {
   position: relative;
@@ -603,7 +613,7 @@ $(function() {
   bgImg.onload = function() {
     $('body').removeClass('body-init');
   }
-  $(window).on('scroll', popLockMacbook);
+  $(window).on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
   $(window).on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
   $(window).on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
   $(window).on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));

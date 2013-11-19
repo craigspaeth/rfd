@@ -79,7 +79,9 @@ body.body-init
       padding 17px
       padding-left 0
       font-size 13px
-      transition color 0.2s
+      transition color 0.2s, background-color 0.2s, border-color 0.2s
+      &:hover, &:active
+        color green-color
       &:nth-child(2), &:first-child
         padding-left 17px
       &.nav-active
@@ -87,6 +89,10 @@ body.body-init
     #home-icon
       color #eee
       border-right 1px solid #555
+      &:hover, &:active
+        background-color green-color
+        color white
+        border-color green-color
 #home
   position relative
   #home-header

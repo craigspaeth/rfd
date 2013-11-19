@@ -8,7 +8,7 @@ $(function() {
   bgImg.onload = function() {
     $('body').removeClass('body-init');
   }
-  $(window).on('scroll', popLockMacbook);
+  $(window).on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
   $(window).on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
   $(window).on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
   $(window).on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
