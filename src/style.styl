@@ -206,17 +206,13 @@ body.body-init
   padding  100px side-padding
 
 .web-container
-  clearfix()
   position relative
-  margin-bottom 200px
   .web-images
   .web-left-frame
     width 80%
   .web-left-frame
     float left
-    position relative
   .web-images
-    overflow hidden
     padding 2.7% 9.6% 21% 9.6%
     li
       width 100%
@@ -224,9 +220,6 @@ body.body-init
         width 100%
   .web-left-macbook
     width 100%
-    top 0
-    left 0
-    border-bottom 9999px solid white
   .web-right-copy
     float right
     width 20%
@@ -243,32 +236,25 @@ body.body-init
       margin-bottom 10px
       line-height 1.2em
   .web-fg
-    height 500px
     position absolute
+    border-bottom solid white 2000px
   &.web-fixed
     .web-fg
       position fixed
       top 0
       left 0
       width 100%
-      padding top-padding side-padding
-    .web-left-macbook
-      border-top 50px solid white
-      position absolute
-      top -50px
-      z-index 2
-    .web-right-copy
-      border-bottom 2000px solid white
-      z-index 0
+      padding 0 side-padding
+      border-top top-padding solid white
+      &:after
+        content '.'
+        color transparent
+        height 100%
+        background white
   &.web-end
     .web-fg
       bottom 0
-      position absolute
-    .web-left-macbook
       border-bottom 0
-      border-top 1000px solid white
-      top -1000px
-      position absolute
 
 .centered-header
   bold()

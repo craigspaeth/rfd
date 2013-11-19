@@ -1,6 +1,6 @@
 var TOP_PADDING = 100,
-    MACBOOK_HEIGHT = 500,
-    DEBOUNCE_INT = 100;
+    DEBOUNCE_INT = 100,
+    macbookHeight;
 
 $(function() {
   var bgImg = new Image
@@ -12,6 +12,8 @@ $(function() {
   $(window).on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
   $(window).on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
   $(window).on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
+  $(window).on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
+  setMacbookMargins();
   resizeHomeToViewport();
   if (navigator.userAgent.match('Safari') && navigator.userAgent.match('Version/5')) {
     $('html').addClass('safari5');
@@ -40,9 +42,9 @@ var relativeToEl = function(el) {
       winBottom = $(window).scrollTop() + $(window).height(),
       elTop = $el.offset().top,
       elBottom = $el.offset().top + $el.height();
-  if (winTop + TOP_PADDING > elTop && winTop + MACBOOK_HEIGHT + TOP_PADDING <= elBottom) {
+  if (winTop + TOP_PADDING > elTop && winTop + macbookHeight + TOP_PADDING <= elBottom) {
     return 'between';
-  } else if(winTop + MACBOOK_HEIGHT + TOP_PADDING >= elBottom) {
+  } else if(winTop + macbookHeight + TOP_PADDING >= elBottom) {
     return 'past';
   } else if(winTop < elTop) {
     return 'before';
@@ -101,3 +103,12 @@ $('#header nav a').click(function() {
   scrollToEl($($(this).attr('href')));
   return false
 });
+
+//
+// Set the margin between the 
+// 
+var setMacbookMargins = function() {
+  macbookHeight = $('.web-left-frame').first().height();
+  var margin = $(window).height() - (macbookHeight + TOP_PADDING);
+  $('.web-container').css({ 'margin-bottom': margin });
+}
