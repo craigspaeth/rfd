@@ -17,6 +17,10 @@ bold()
   text-transform uppercase
   letter-spacing 1px
 
+cursor-zoom()
+  cursor -webkit-zoom-in
+  cursor -moze-zoom-in
+
 body, #header, .web-container.web-fixed .web-fg
   min-width 1020px
 
@@ -26,6 +30,7 @@ body
   font-size 15px
   background-size 70%
   line-height 1.4em
+  overflow hidden
   &:before
     content '.'
     color transparent
@@ -104,33 +109,41 @@ body.body-init
     margin-left -100px
     width 200px
     height 100px
-    h2, h1
-      bold()
-      text-transform lowercase
-    h1
-      display block
-      font-size 40px
-      letter-spacing 10px
-    h2
-      font-size 25px
-      font-weight normal
-      margin-top 15px
-    .home-r
-    .home-l
-      color green-color
-  #home-down-arrow
-    border 2px solid dark-gray
-    padding 20px
-    margin auto
+
+.logo
+  h2, h1
+    bold()
+    text-transform lowercase
+  h1
     display block
-    background transparent
-    position absolute
-    top 90%
-    left 50%
-    margin-left -22px
-    background url('images/scroll-arrow.svg') center center no-repeat
-    background-size 60%
-    cursor pointer
+    font-size 40px
+    letter-spacing 10px
+  h2
+    font-size 25px
+    font-weight normal
+    margin-top 15px
+  .home-r
+  .home-l
+    color green-color
+
+#home-down-arrow, #home-up-arrow
+  border 2px solid dark-gray
+  padding 20px
+  margin auto
+  display block
+  background transparent
+  position absolute
+  top 90%
+  left 50%
+  margin-left -22px
+  background url('images/scroll-arrow.svg') center center no-repeat
+  background-size 60%
+  cursor pointer
+
+#home-up-arrow
+  top -80px
+  background-position-y 14px
+  transform rotate(180deg)
 
 .large-header
   background rgba(0,0,0,0.85)
@@ -213,11 +226,11 @@ body.body-init
 
 .web-container
   position relative
-  .web-images
-  .web-left-frame
+  .web-images, .web-left-frame
     width 80%
   .web-left-frame
     float left
+    position relative
   .web-images
     padding 2.7% 9.6% 21% 9.6%
     li
@@ -226,6 +239,13 @@ body.body-init
         width 100%
   .web-left-macbook
     width 100%
+  .web-overlay
+    width 76%
+    height 80%
+    top 6%
+    left 12%
+    cursor-zoom()
+    position absolute
   .web-right-copy
     float right
     width 20%
@@ -277,6 +297,8 @@ body.body-init
   margin-bottom 100px
   + .two-divided-grid
     margin-top -100px
+  img
+    cursor-zoom()
 .two-divided-grid li
   padding 30px
   border-bottom 1px solid light-gray
@@ -346,6 +368,51 @@ body.body-init
   color green-color
   margin 15px 0
   display block
+
+#modal-container
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  z-index 4
+  background black
+  padding 0 90px
+  text-align center
+  overflow scroll
+  display none
+  #modal-close
+    background url('images/close.svg') center center no-repeat
+    background-size 50%
+    position fixed
+    z-index 5
+    top 15px
+    right @top
+    padding 25px
+    cursor pointer
+    opacity 0.4
+    transition opacity 0.3s 
+    border 2px solid #eee
+    &:hover, &:active
+      opacity 1
+  #modal
+    background white
+    display inline-block
+    position relative
+    img
+      width 100%
+
+#photo-video img
+  cursor-zoom()
+
+#footer .logo
+  text-align center
+  margin 40px 0
+  h1
+    font-size 30px
+  h2
+    font-size 20px
+    margin-top 8px
 
 // 
 // Safari 5

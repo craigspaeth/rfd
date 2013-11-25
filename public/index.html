@@ -102,6 +102,7 @@ body {
   -moz-background-size: 70%;
   background-size: 70%;
   line-height: 1.4em;
+  overflow: hidden;
 }
 body:before {
   content: '.';
@@ -230,8 +231,8 @@ body.body-init #header {
   width: 200px;
   height: 100px;
 }
-#home #home-header h2,
-#home #home-header h1 {
+.logo h2,
+.logo h1 {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
@@ -242,21 +243,22 @@ body.body-init #header {
   letter-spacing: 1px;
   text-transform: lowercase;
 }
-#home #home-header h1 {
+.logo h1 {
   display: block;
   font-size: 40px;
   letter-spacing: 10px;
 }
-#home #home-header h2 {
+.logo h2 {
   font-size: 25px;
   font-weight: normal;
   margin-top: 15px;
 }
-#home #home-header .home-r,
-#home #home-header .home-l {
+.logo .home-r,
+.logo .home-l {
   color: #3a814f;
 }
-#home #home-down-arrow {
+#home-down-arrow,
+#home-up-arrow {
   border: 2px solid #222;
   padding: 20px;
   margin: auto;
@@ -271,6 +273,15 @@ body.body-init #header {
   -moz-background-size: 60%;
   background-size: 60%;
   cursor: pointer;
+}
+#home-up-arrow {
+  top: -80px;
+  background-position-y: 14px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .large-header {
   background: rgba(0,0,0,0.85);
@@ -395,6 +406,7 @@ body.body-init #header {
 }
 .web-container .web-left-frame {
   float: left;
+  position: relative;
 }
 .web-container .web-images {
   padding: 2.7% 9.6% 21% 9.6%;
@@ -407,6 +419,15 @@ body.body-init #header {
 }
 .web-container .web-left-macbook {
   width: 100%;
+}
+.web-container .web-overlay {
+  width: 76%;
+  height: 80%;
+  top: 6%;
+  left: 12%;
+  cursor: -webkit-zoom-in;
+  cursor: -moze-zoom-in;
+  position: absolute;
 }
 .web-container .web-right-copy {
   float: right;
@@ -486,6 +507,10 @@ body.body-init #header {
 }
 .two-divided-grid + .two-divided-grid {
   margin-top: -100px;
+}
+.two-divided-grid img {
+  cursor: -webkit-zoom-in;
+  cursor: -moze-zoom-in;
 }
 .two-divided-grid li {
   padding: 30px;
@@ -596,30 +621,107 @@ body.body-init #header {
   margin: 15px 0;
   display: block;
 }
+#modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background: #000;
+  padding: 0 90px;
+  text-align: center;
+  overflow: scroll;
+  display: none;
+}
+#modal-container #modal-close {
+  background: url("images/close.svg") center center no-repeat;
+  -webkit-background-size: 50%;
+  -moz-background-size: 50%;
+  background-size: 50%;
+  position: fixed;
+  z-index: 5;
+  top: 15px;
+  right: 15px;
+  padding: 25px;
+  cursor: pointer;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  border: 2px solid #eee;
+}
+#modal-container #modal-close:hover,
+#modal-container #modal-close:active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#modal-container #modal {
+  background: #fff;
+  display: inline-block;
+  position: relative;
+}
+#modal-container #modal img {
+  width: 100%;
+}
+#photo-video img {
+  cursor: -webkit-zoom-in;
+  cursor: -moze-zoom-in;
+}
+#footer .logo {
+  text-align: center;
+  margin: 40px 0;
+}
+#footer .logo h1 {
+  font-size: 30px;
+}
+#footer .logo h2 {
+  font-size: 20px;
+  margin-top: 8px;
+}
 html.safari5 #home-down-arrow {
   padding: 15px 20px !important;
 }
 html.safari5 #campari-video-play {
   padding: 20px 26px !important;
 }
-</style><link rel="icon" type="image/png" href="images/favicon.ico"></head><body class="body-init"><div id="container"><div id="header"><nav><a id="home-icon" href="#home" class="nav-active">RP</a><a href="#campari">Campari</a><a href="#nofeedigs">NoFeeDigs</a><a href="#medical">Rapaport & JTav</a><a href="#russels-reserve">Russell's Reserve</a><a href="#photo-video">Photo/Video</a><a href="#footer">Resume/Contact</a></nav></div><div id="home"><div id="home-header"><h1><span class="home-r">r</span>ache<span class="home-l">l</span></h1><h2>for design</h2></div><button id="home-down-arrow"></button></div><div id="campari"><h3 class="large-header"><div class="large-header-box">Campari America</div><div class="large-header-arrow-down light-arrow"></div></h3><div id="campari-video"><div id="campari-video-copy-container"><p>Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..</p><button id="campari-video-play"></button></div><div id="campari-video-bg"><img src="/images/campari.jpg"></div><video id="campari-video-player" controls="controls"><source src="videos/campari.mp4" type="video/mp4">Your browser doesn't support HTML5 video, please see this<a href="https://vimeo.com/72108093">on vimeo.</a>.</video></div></div><div id="nofeedigs"><h3 class="large-header"><div class="large-header-box">NoFeeDigs</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>NoFeeDigs Website</h1><p>Co-founder of NoFeeDigs. Website (nofeedigs.com) designed to help people find no fee apartments in New York City. I was instrumental in business, design and product development, and created social media.</p><a href="http://nofeedigs.com" target="_blank" class="web-link">Visit website</a></div></div><ul class="web-images"><li><img src="/images/nfd/1.png"/></li><li><img src="/images/nfd/2.png"/></li><li><img src="/images/nfd/3.png"/></li></ul></div><h2 class="centered-header">NoFeeDigs Identity</h2><ul class="two-divided-grid"><li><img src="images/nfd-identity/1.png"></li><li><img src="images/nfd-identity/2.png"></li><li><img src="images/nfd-identity/3.png"></li><li><img src="images/nfd-identity/4.png"></li><li><img src="images/nfd-identity/5.png"></li><li><img src="images/nfd-identity/6.png"></li></ul></div></div><div id="medical"><h3 class="large-header"><div class="large-header-box">Rapaport &amp; JTav</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>David Rapaport, M.D. Website</h1><p>Designed and created identity for Dr. David P. Rapaport, M.D. (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterheads, customized scrubs, water bottles and tote bags; set up all of Dr. Rapaport's social media accounts; as well as filmed and edited promotional videos for his YouTube channel.</p></div></div><ul class="web-images"><li><img src="/images/dr-web/1.png"/></li><li><img src="/images/dr-web/2.png"/></li><li><img src="/images/dr-web/3.png"/></li><li><img src="/images/dr-web/4.png"/></li><li><img src="/images/dr-web/5.png"/></li><li><img src="/images/dr-web/6.png"/></li></ul></div><h2 class="centered-header">David Rapaport, M.D. Identity</h2><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/dr-identity/1.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/2.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/3.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/4.png"></li></ul><ul class="two-divided-grid"><li><img src="images/dr-identity/5.png"></li><li><img src="images/dr-identity/6.png"></li><li><img src="images/dr-identity/7.png"></li><li><img src="images/dr-identity/8.png"></li><li><img src="images/dr-identity/9.jpg"></li><li><img src="images/dr-identity/10.png"></li></ul><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>CoolSpa Fifth Avenue</h1><p>Identity package and marketing for CoolSpa Fifth Avenue (founded by Dr. David P. Rapaport, a Harvard/NYU trained plastic surgeon) including: logo, website, and promotion material (including male and female patient brochures, advertisements that premiered in New York Magazine, event invitations, water bottles, tote bags, etc.).</p></div></div><ul class="web-images"><li><img src="/images/coolspa-web/1.png"/></li></ul></div><h2 class="centered-header">CoolSpa Fifth Avenue Identity</h2><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/l.png"></li></ul><ul class="two-divided-grid"><li><img src="images/coolspa/1.jpg"></li><li><img src="images/coolspa/2.png"></li><li><img src="images/coolspa/3.png"></li><li><img src="images/coolspa/4.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/b1.jpg"></li><li class="two-grid-wide"><img src="images/coolspa/b2.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/row.jpg"></li></ul><div class="web-container"><div class="web-fg"><div class="web-left-frame"><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>JTav Clinical Skincare Website</h1><p>Designed and created website for Esthetician Joie Tavernise (JTav Clinical Skin Care); set up all of Joie's social media accounts; photographed Joie, her office and employees for website and promotional material; as well as filmed and edited a video to promote Joie's Ultherapy practice (for her website, Vimeo and YouTube channel).</p><a href="http://jtavclinicalskincare.com" target="_blank" class="web-link">Visit website</a></div></div><ul class="web-images"><li><img src="/images/jtav/1.png"/></li><li><img src="/images/jtav/2.png"/></li><li><img src="/images/jtav/3.png"/></li><li><img src="/images/jtav/4.png"/></li><li><img src="/images/jtav/5.png"/></li><li><img src="/images/jtav/6.png"/></li></ul></div></div></div><div id="russels-reserve"><h3 class="large-header"><div class="large-header-box">Russel's Reserve</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><h2 class="centered-header">Identity Concepts</h2><ul class="two-divided-grid"><li><img src="images/rr/1.jpg"></li><li><img src="images/rr/2.jpg"></li><li><img src="images/rr/3.jpg"></li><li><img src="images/rr/4.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/rr/6.jpg"></li><li class="two-grid-wide"><img src="images/rr/8.jpg"></li><li class="two-grid-wide"><img src="images/rr/9.jpg"></li><li class="two-grid-wide"><img src="images/rr/10.jpg"></li><li class="two-grid-wide"><img src="images/rr/s1.jpg"></li></ul></div></div><div id="photo-video"><h3 class="large-header"><div class="large-header-box">Photo/Video</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><h2 class="centered-header">Assorted non-commerical Video and Photography Work</h2><video loop autoplay="autoplay" muted class="pv-video-full"><source src="pv/2.mp4" type="video/mp4"></video><div class="pv-two"><img src="pv/1.jpg" style="width: 38.28%; margin-bottom: -1px"><img src="pv/3.jpg" style="width: 61.72%"></div><video loop autoplay="autoplay" muted class="pv-video-full"><source src="pv/5.mp4" type="video/mp4"></video><div class="pv-two"><video loop autoplay="autoplay" muted style="width: 50%"><source src="pv/4.mp4" type="video/mp4"></video><video loop autoplay="autoplay" muted style="width: 50%"><source src="pv/6.mp4" type="video/mp4"></video></div></div></div><div id="footer-container"><div id="footer"><a id="download-resume" href="resume.pdf" _target="blank">Download Resume</a><div id="contact-box"><div class="contact-box-left">L<br>T<br>E</div><div class="contact-box-right">New York, NY<br>801 870 5285<br><a href="mailto:rachelpigott@gmail.com">rachelpigott@gmail.com</a></div><ul class="contact-box-social-media"><li class="twitter"></li><li class="facebook"></li><li class="instagram"></li></ul></div></div></div></div><div id="scripts"><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script><script type="text/javascript">
+</style><link rel="icon" type="image/png" href="images/favicon.ico"></head><body class="body-init"><div id="container"><div id="header"><nav><a id="home-icon" href="#home" class="nav-active">RP</a><a href="#campari">Campari</a><a href="#nofeedigs">NoFeeDigs</a><a href="#medical">Rapaport & JTav</a><a href="#russels-reserve">Russell's Reserve</a><a href="#photo-video">Photo/Video</a><a href="#footer">Resume/Contact</a></nav></div><div id="home"><div id="home-header"><div class="logo"><h1><span class="home-r">r</span>ache<span class="home-l">l</span></h1><h2>for design</h2></div></div><button id="home-down-arrow"></button></div><div id="campari"><h3 class="large-header"><div class="large-header-box">Campari America</div><div class="large-header-arrow-down light-arrow"></div></h3><div id="campari-video"><div id="campari-video-copy-container"><p>Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..</p><button id="campari-video-play"></button></div><div id="campari-video-bg"><img src="/images/campari.jpg"></div><video id="campari-video-player" controls="controls"><source src="videos/campari.mp4" type="video/mp4">Your browser doesn't support HTML5 video, please see this<a href="https://vimeo.com/72108093">on vimeo.</a>.</video></div></div><div id="nofeedigs"><h3 class="large-header"><div class="large-header-box">NoFeeDigs</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><div class="web-container"><div class="web-fg"><div class="web-left-frame"><div class="web-overlay"></div><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>NoFeeDigs Website</h1><p>Co-founder of NoFeeDigs. Website (nofeedigs.com) designed to help people find no fee apartments in New York City. I was instrumental in business, design and product development, and created social media.</p><a href="http://nofeedigs.com" target="_blank" class="web-link">Visit website</a></div></div><ul class="web-images"><li><img src="/images/nfd/1.png"/></li><li><img src="/images/nfd/2.png"/></li><li><img src="/images/nfd/3.png"/></li></ul></div><h2 class="centered-header">NoFeeDigs Identity</h2><ul class="two-divided-grid"><li><img src="images/nfd-identity/1.png"></li><li><img src="images/nfd-identity/2.png"></li><li><img src="images/nfd-identity/3.png"></li><li><img src="images/nfd-identity/4.png"></li><li><img src="images/nfd-identity/5.png"></li><li><img src="images/nfd-identity/6.png"></li></ul></div></div><div id="medical"><h3 class="large-header"><div class="large-header-box">Rapaport &amp; JTav</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><div class="web-container"><div class="web-fg"><div class="web-left-frame"><div class="web-overlay"></div><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>David Rapaport, M.D. Website</h1><p>Designed and created identity for Dr. David P. Rapaport, M.D. (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterheads, customized scrubs, water bottles and tote bags; set up all of Dr. Rapaport's social media accounts; as well as filmed and edited promotional videos for his YouTube channel.</p></div></div><ul class="web-images"><li><img src="/images/dr-web/1.png"/></li><li><img src="/images/dr-web/2.png"/></li><li><img src="/images/dr-web/3.png"/></li><li><img src="/images/dr-web/4.png"/></li><li><img src="/images/dr-web/5.png"/></li><li><img src="/images/dr-web/6.png"/></li></ul></div><h2 class="centered-header">David Rapaport, M.D. Identity</h2><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/dr-identity/1.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/2.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/3.jpg"></li><li class="two-grid-wide"><img src="images/dr-identity/4.png"></li></ul><ul class="two-divided-grid"><li><img src="images/dr-identity/5.png"></li><li><img src="images/dr-identity/6.png"></li><li><img src="images/dr-identity/7.png"></li><li><img src="images/dr-identity/8.png"></li><li><img src="images/dr-identity/9.jpg"></li><li><img src="images/dr-identity/10.png"></li></ul><div class="web-container"><div class="web-fg"><div class="web-left-frame"><div class="web-overlay"></div><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>CoolSpa Fifth Avenue</h1><p>Identity package and marketing for CoolSpa Fifth Avenue (founded by Dr. David P. Rapaport, a Harvard/NYU trained plastic surgeon) including: logo, website, and promotion material (including male and female patient brochures, advertisements that premiered in New York Magazine, event invitations, water bottles, tote bags, etc.).</p></div></div><ul class="web-images"><li><img src="/images/coolspa-web/1.png"/></li></ul></div><h2 class="centered-header">CoolSpa Fifth Avenue Identity</h2><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/l.png"></li></ul><ul class="two-divided-grid"><li><img src="images/coolspa/1.jpg"></li><li><img src="images/coolspa/2.png"></li><li><img src="images/coolspa/3.png"></li><li><img src="images/coolspa/4.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/b1.jpg"></li><li class="two-grid-wide"><img src="images/coolspa/b2.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/coolspa/row.jpg"></li></ul><div class="web-container"><div class="web-fg"><div class="web-left-frame"><div class="web-overlay"></div><img src="/images/macbook.png" class="web-left-macbook"/></div><div class="web-right-copy"><h1>JTav Clinical Skincare Website</h1><p>Designed and created website for Esthetician Joie Tavernise (JTav Clinical Skin Care); set up all of Joie's social media accounts; photographed Joie, her office and employees for website and promotional material; as well as filmed and edited a video to promote Joie's Ultherapy practice (for her website, Vimeo and YouTube channel).</p><a href="http://jtavclinicalskincare.com" target="_blank" class="web-link">Visit website</a></div></div><ul class="web-images"><li><img src="/images/jtav/1.png"/></li><li><img src="/images/jtav/2.png"/></li><li><img src="/images/jtav/3.png"/></li><li><img src="/images/jtav/4.png"/></li><li><img src="/images/jtav/5.png"/></li><li><img src="/images/jtav/6.png"/></li></ul></div></div></div><div id="russels-reserve"><h3 class="large-header"><div class="large-header-box">Russel's Reserve</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><h2 class="centered-header">Identity Concepts</h2><ul class="two-divided-grid"><li><img src="images/rr/1.jpg"></li><li><img src="images/rr/2.jpg"></li><li><img src="images/rr/3.jpg"></li><li><img src="images/rr/4.jpg"></li></ul><ul class="two-divided-grid"><li class="two-grid-wide"><img src="images/rr/6.jpg"></li><li class="two-grid-wide"><img src="images/rr/8.jpg"></li><li class="two-grid-wide"><img src="images/rr/9.jpg"></li><li class="two-grid-wide"><img src="images/rr/10.jpg"></li><li class="two-grid-wide"><img src="images/rr/s1.jpg"></li></ul></div></div><div id="photo-video"><h3 class="large-header"><div class="large-header-box">Photo/Video</div><div class="large-header-arrow-down"></div></h3><div class="white-bg"><h2 class="centered-header">Assorted non-commerical Video and Photography Work</h2><div class="pv-two"><img src="pv/1.jpg" style="width: 38.28%; margin-bottom: -1px"><img src="pv/3.jpg" style="width: 61.72%"></div><video loop autoplay="autoplay" muted class="pv-video-full"><source src="pv/5.mp4" type="video/mp4"></video><div class="pv-two"><video loop autoplay="autoplay" muted style="width: 43%"><source src="pv/4.mp4" type="video/mp4"></video><video loop autoplay="autoplay" muted style="width: 57%" class="pv-video-full"><source src="pv/2.mp4" type="video/mp4"></video></div></div></div><div id="modal-container"><div id="modal-close"></div><div id="modal"><img src="images/jtav/1.png"></div></div><div id="footer-container"><div id="footer"><button id="home-up-arrow"></button><a id="download-resume" href="resume.pdf" _target="blank">Download Resume</a><div id="contact-box"><div class="contact-box-left">L<br>T<br>E</div><div class="contact-box-right">New Yorkimages., NY<br>801 870 5285<br><a href="mailto:rachelpigott@gmail.com">rachelpigott@gmail.com</a></div><ul class="contact-box-social-media"><li class="twitter"></li><li class="facebook"></li><li class="instagram"></li></ul></div><div class="logo"><h1><span class="home-r">r</span>ache<span class="home-l">l</span></h1><h2>for design</h2></div></div></div></div><div id="scripts"><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script><script type="text/javascript">
 var TOP_PADDING = 100,
     DEBOUNCE_INT = 100,
-    macbookHeight;
+    macbookHeight,
+    $window,
+    $webcontainers,
+    $largeheaders;
 
 $(function() {
-  var bgImg = new Image
-  bgImg.src = '/images/brick.jpg'
+  
+  // Cache selectors
+  $window = $(window);
+  $webcontainers = $($('.web-container').get().reverse());
+  $largeheaders = $($('.large-header').get().reverse());
+
+  // Hide content until the brick bg is loaded
+  var bgImg = new Image;
+  bgImg.src = '/images/brick.jpg';
   bgImg.onload = function() {
     $('body').removeClass('body-init');
   }
-  $(window).on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
-  $(window).on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
-  $(window).on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
-  $(window).on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
-  $(window).on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
+
+  // Set scroll handlers
+  $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
+  $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
+  $window.on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
+  $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
+  $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
   setMacbookMargins();
   resizeHomeToViewport();
+
+  // Detect Safari 5
   if (navigator.userAgent.match('Safari') && navigator.userAgent.match('Version/5')) {
     $('html').addClass('safari5');
   }
@@ -629,8 +731,7 @@ $(function() {
 // Pop lock the macbook on scroll
 // 
 var popLockMacbook = function() {
-  var $els = $($('.web-container').get().reverse());
-  $els.each(function() {
+  $webcontainers.each(function() {
     if (relativeToEl(this) == 'between') {
       $(this).removeClass('web-end').addClass('web-fixed');
     } else if (relativeToEl(this) == 'past') {
@@ -641,10 +742,13 @@ var popLockMacbook = function() {
   });
 };
 
+// 
+// Determine where the viewport is relative to an elemente
+// 
 var relativeToEl = function(el) {
   var $el = $(el),
-      winTop = $(window).scrollTop(),
-      winBottom = $(window).scrollTop() + $(window).height(),
+      winTop = $window.scrollTop(),
+      winBottom = $window.scrollTop() + $window.height(),
       elTop = $el.offset().top,
       elBottom = $el.offset().top + $el.height();
   if (winTop + TOP_PADDING > elTop && winTop + macbookHeight + TOP_PADDING <= elBottom) {
@@ -667,22 +771,21 @@ $('#campari-video-play').click(function() {
 // Homepage hero unit scales to the height of the viewport
 // 
 var resizeHomeToViewport = function() {
-  $('#home, #footer-container').height($(window).height());
+  $('#home, #footer-container').height($window.height());
 }
 
 // 
 // Highlight nav section as you scroll
 //  
 var highlightNav = function() {
-  var $els = $($('.large-header').get().reverse());
   $('#header nav a').removeClass('nav-active');
-  if (($(window).height() + $(window).scrollTop() >= $(document).height())
-      || ($(window).scrollTop() + 220 > $("#footer").offset().top)) {
+  if (($window.height() + $window.scrollTop() >= $(document).height())
+      || ($window.scrollTop() + 220 > $("#footer").offset().top)) {
     $('#header nav a:last-child').addClass('nav-active');
   } else {
-    $els.each(function(i) {
+    $largeheaders.each(function(i) {
       if (relativeToEl(this) == 'between' || relativeToEl(this) == 'past' && !$('.nav-active').length) {
-        $('#header nav a:nth-child(' + ($els.length - i + 1) + ')').addClass('nav-active');
+        $('#header nav a:nth-child(' + ($largeheaders.length - i + 1) + ')').addClass('nav-active');
       }
     });
   }
@@ -691,8 +794,10 @@ var highlightNav = function() {
 // 
 // Fade in the header as you scroll
 // 
-var fadeInHeader = function() {
-  $('#header').css({ opacity: $(window).scrollTop() / $(window).height() });
+var fadeInHeader = function() { 
+  var opacity = $window.scrollTop() > $window.height() ? 1:
+                (($window.scrollTop() - ($window.height() / 2)) / $window.height()) * 2;
+  $('#header').css({ opacity: opacity });
 }
 
 // 
@@ -708,12 +813,45 @@ $('#header nav a').click(function() {
   scrollToEl($($(this).attr('href')));
   return false
 });
-
+$('#home-up-arrow').click(function() {
+  scrollToEl($('#home'));
+});
 //
 // Set the margin between the 
 // 
 var setMacbookMargins = function() {
   macbookHeight = $('.web-left-frame').first().height();
-  var margin = Math.max($(window).height() - Math.max(macbookHeight + TOP_PADDING), 100);
+  var margin = Math.max($window.height() - Math.max(macbookHeight + TOP_PADDING), 100);
   $('.web-container').css({ 'margin-bottom': margin });
-}</script></div></body></html>
+}
+
+// 
+// Open modal window on clicking an image or macbook
+//
+var closeModal= function() {
+  $('#modal-container').fadeOut(200);
+};
+var setModal = function($img) {
+  $('#modal-container img').attr('src', $img.attr('src'));
+  $('#modal-container').fadeIn(200);
+}
+$('.web-overlay').click(function(e) {
+  var $imgs = $(this).closest('.web-container').find('.web-images img'),
+      $img;
+  $imgs.each(function() {
+    var top = $(this).offset().top - $window.scrollTop(),
+        bottom = $(this).offset().top + $(this).height() - $window.scrollTop();
+    if(e.clientY >= top && e.clientY <= bottom) $img = $(this);
+  });
+  setModal($img);
+});
+$('#modal-close').click(closeModal);
+$(document).on('keyup', function(e) {
+  if(e.which == 27) closeModal(); // ESC key
+});
+$('.two-divided-grid img').click(function() {
+  setModal($(this));
+});
+$('#photo-video img').click(function() {
+  setModal($(this));
+});</script></div></body></html>

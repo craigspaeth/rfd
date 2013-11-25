@@ -7,6 +7,7 @@ mixin web-container(title, len, imgPrefix, href, copy)
   .web-container
     .web-fg
       .web-left-frame
+        .web-overlay
         img.web-left-macbook( src='/images/macbook.png' )
       .web-right-copy
         h1= title
@@ -17,6 +18,14 @@ mixin web-container(title, len, imgPrefix, href, copy)
       for n, i in new Array(len)
         li
           img( src="/images/#{imgPrefix}#{i + 1}.png" )
+
+mixin logo()
+  .logo
+    h1
+      span.home-r r
+      | ache
+      span.home-l l
+    h2 for design
 
 doctype 5
 html( lang="en" )
@@ -42,11 +51,7 @@ html( lang="en" )
       //- Homepage
       #home
         #home-header
-          h1
-            span.home-r r
-            | ache
-            span.home-l l
-          h2 for design
+          mixin logo
         button#home-down-arrow
 
       //- Campari America
@@ -163,22 +168,27 @@ html( lang="en" )
         mixin large-header( "Photo/Video", false )
         .white-bg
           h2.centered-header Assorted non-commerical Video and Photography Work
-          video.pv-video-full( loop=true, autoplay='autoplay', muted=true )
-            source( src='pv/2.mp4', type='video/mp4' )
           .pv-two
             img( src='pv/1.jpg', style='width: 38.28%; margin-bottom: -1px' )
             img( src='pv/3.jpg', style='width: 61.72%' )
           video.pv-video-full( loop=true, autoplay='autoplay', muted=true )
             source( src='pv/5.mp4', type='video/mp4' )
           .pv-two
-            video( loop=true, autoplay='autoplay', muted=true, style='width: 50%' )
+            video( loop=true, autoplay='autoplay', muted=true, style='width: 43%' )
               source( src='pv/4.mp4', type='video/mp4' )
-            video( loop=true, autoplay='autoplay', muted=true, style='width: 50%' )
-              source( src='pv/6.mp4', type='video/mp4' )
+            video.pv-video-full( loop=true, autoplay='autoplay', muted=true, style='width: 57%' )
+              source( src='pv/2.mp4', type='video/mp4' )
       
+      //- Modal window
+      #modal-container
+        #modal-close
+        #modal
+          img( src='images/jtav/1.png' )
+
       //- Footer
       #footer-container
         #footer
+          button#home-up-arrow
           a#download-resume( href='resume.pdf', _target='blank' ) Download Resume
           #contact-box
             .contact-box-left
@@ -188,7 +198,7 @@ html( lang="en" )
               br
               | E
             .contact-box-right
-              | New York, NY
+              | New Yorkimages., NY
               br
               | 801 870 5285
               br
@@ -197,6 +207,7 @@ html( lang="en" )
               li.twitter
               li.facebook
               li.instagram
+          mixin logo
 
     #scripts
       script( src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" )

@@ -1,20 +1,34 @@
 var TOP_PADDING = 100,
     DEBOUNCE_INT = 100,
-    macbookHeight;
+    macbookHeight,
+    $window,
+    $webcontainers,
+    $largeheaders;
 
 $(function() {
-  var bgImg = new Image
-  bgImg.src = '/images/brick.jpg'
+  
+  // Cache selectors
+  $window = $(window);
+  $webcontainers = $($('.web-container').get().reverse());
+  $largeheaders = $($('.large-header').get().reverse());
+
+  // Hide content until the brick bg is loaded
+  var bgImg = new Image;
+  bgImg.src = '/images/brick.jpg';
   bgImg.onload = function() {
     $('body').removeClass('body-init');
   }
-  $(window).on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
-  $(window).on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
-  $(window).on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
-  $(window).on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
-  $(window).on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
+
+  // Set scroll handlers
+  $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
+  $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
+  $window.on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
+  $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
+  $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
   setMacbookMargins();
   resizeHomeToViewport();
+
+  // Detect Safari 5
   if (navigator.userAgent.match('Safari') && navigator.userAgent.match('Version/5')) {
     $('html').addClass('safari5');
   }
@@ -24,8 +38,7 @@ $(function() {
 // Pop lock the macbook on scroll
 // 
 var popLockMacbook = function() {
-  var $els = $($('.web-container').get().reverse());
-  $els.each(function() {
+  $webcontainers.each(function() {
     if (relativeToEl(this) == 'between') {
       $(this).removeClass('web-end').addClass('web-fixed');
     } else if (relativeToEl(this) == 'past') {
@@ -36,10 +49,13 @@ var popLockMacbook = function() {
   });
 };
 
+// 
+// Determine where the viewport is relative to an elemente
+// 
 var relativeToEl = function(el) {
   var $el = $(el),
-      winTop = $(window).scrollTop(),
-      winBottom = $(window).scrollTop() + $(window).height(),
+      winTop = $window.scrollTop(),
+      winBottom = $window.scrollTop() + $window.height(),
       elTop = $el.offset().top,
       elBottom = $el.offset().top + $el.height();
   if (winTop + TOP_PADDING > elTop && winTop + macbookHeight + TOP_PADDING <= elBottom) {
@@ -62,22 +78,21 @@ $('#campari-video-play').click(function() {
 // Homepage hero unit scales to the height of the viewport
 // 
 var resizeHomeToViewport = function() {
-  $('#home, #footer-container').height($(window).height());
+  $('#home, #footer-container').height($window.height());
 }
 
 // 
 // Highlight nav section as you scroll
 //  
 var highlightNav = function() {
-  var $els = $($('.large-header').get().reverse());
   $('#header nav a').removeClass('nav-active');
-  if (($(window).height() + $(window).scrollTop() >= $(document).height())
-      || ($(window).scrollTop() + 220 > $("#footer").offset().top)) {
+  if (($window.height() + $window.scrollTop() >= $(document).height())
+      || ($window.scrollTop() + 220 > $("#footer").offset().top)) {
     $('#header nav a:last-child').addClass('nav-active');
   } else {
-    $els.each(function(i) {
+    $largeheaders.each(function(i) {
       if (relativeToEl(this) == 'between' || relativeToEl(this) == 'past' && !$('.nav-active').length) {
-        $('#header nav a:nth-child(' + ($els.length - i + 1) + ')').addClass('nav-active');
+        $('#header nav a:nth-child(' + ($largeheaders.length - i + 1) + ')').addClass('nav-active');
       }
     });
   }
@@ -86,8 +101,10 @@ var highlightNav = function() {
 // 
 // Fade in the header as you scroll
 // 
-var fadeInHeader = function() {
-  $('#header').css({ opacity: $(window).scrollTop() / $(window).height() });
+var fadeInHeader = function() { 
+  var opacity = $window.scrollTop() > $window.height() ? 1:
+                (($window.scrollTop() - ($window.height() / 2)) / $window.height()) * 2;
+  $('#header').css({ opacity: opacity });
 }
 
 // 
@@ -103,12 +120,45 @@ $('#header nav a').click(function() {
   scrollToEl($($(this).attr('href')));
   return false
 });
-
+$('#home-up-arrow').click(function() {
+  scrollToEl($('#home'));
+});
 //
 // Set the margin between the 
 // 
 var setMacbookMargins = function() {
   macbookHeight = $('.web-left-frame').first().height();
-  var margin = Math.max($(window).height() - Math.max(macbookHeight + TOP_PADDING), 100);
+  var margin = Math.max($window.height() - Math.max(macbookHeight + TOP_PADDING), 100);
   $('.web-container').css({ 'margin-bottom': margin });
 }
+
+// 
+// Open modal window on clicking an image or macbook
+//
+var closeModal= function() {
+  $('#modal-container').fadeOut(200);
+};
+var setModal = function($img) {
+  $('#modal-container img').attr('src', $img.attr('src'));
+  $('#modal-container').fadeIn(200);
+}
+$('.web-overlay').click(function(e) {
+  var $imgs = $(this).closest('.web-container').find('.web-images img'),
+      $img;
+  $imgs.each(function() {
+    var top = $(this).offset().top - $window.scrollTop(),
+        bottom = $(this).offset().top + $(this).height() - $window.scrollTop();
+    if(e.clientY >= top && e.clientY <= bottom) $img = $(this);
+  });
+  setModal($img);
+});
+$('#modal-close').click(closeModal);
+$(document).on('keyup', function(e) {
+  if(e.which == 27) closeModal(); // ESC key
+});
+$('.two-divided-grid img').click(function() {
+  setModal($(this));
+});
+$('#photo-video img').click(function() {
+  setModal($(this));
+});
