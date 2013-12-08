@@ -3,7 +3,8 @@ var TOP_PADDING = 100,
     macbookHeight,
     $window,
     $webcontainers,
-    $largeheaders;
+    $largeheaders,
+    isIphone;
 
 $(function() {
   
@@ -32,6 +33,9 @@ $(function() {
   if (navigator.userAgent.match('Safari') && navigator.userAgent.match('Version/5')) {
     $('html').addClass('safari5');
   }
+
+  // Detect iphone
+  if (navigator.userAgent.match('iPhone')) isIphone = true;
 });
 
 // 
