@@ -33,11 +33,13 @@ html( lang="en" )
     title Rachel Pigott | Design, Film, and Medicine.
     include ./style.styl
     link( rel='icon', type='image/png', href='images/favicon.ico' )
+    meta( name='viewport', content='width=device-width', initial-scale='1.0,user-scalable=no' )
   body.body-init
 
     #container
     
       //- Sticky Header
+      #hamburger &#9776;
       #header
         nav
           a#home-icon.nav-active( href='#home' ) RP
@@ -198,7 +200,7 @@ html( lang="en" )
               br
               | E
             .contact-box-right
-              | New Yorkimages., NY
+              | New York, NY
               br
               | 801 870 5285
               br

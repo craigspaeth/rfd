@@ -18,16 +18,8 @@ $(function() {
   bgImg.src = '/images/brick.jpg';
   bgImg.onload = function() {
     $('body').removeClass('body-init');
+    resizeHomeToViewport();
   }
-
-  // Set scroll handlers
-  $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
-  $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
-  $window.on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
-  $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
-  $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
-  setMacbookMargins();
-  resizeHomeToViewport();
 
   // Detect Safari 5
   if (navigator.userAgent.match('Safari') && navigator.userAgent.match('Version/5')) {
@@ -35,7 +27,34 @@ $(function() {
   }
 
   // Detect iphone
-  if (navigator.userAgent.match('iPhone')) isIphone = true;
+  if (navigator.userAgent.match('iPhone')) {
+    isIphone = true;
+    $('html').addClass('iphone');
+    $window.height = function() {
+      return window.screen.height;
+    }
+  }
+
+  if(!isIphone) {
+
+    // Set scroll handlers
+    $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
+    $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
+    $window.on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
+    $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
+    $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
+    setMacbookMargins();
+  } else {
+    
+    // Clicking the hamburger shows the menu
+    $('#hamburger').click(function() {
+      $('#header').toggle();
+    });
+    $('#header a').click(function() {
+      $('#header').toggle();
+    });  
+  }
+  resizeHomeToViewport();
 });
 
 // 
