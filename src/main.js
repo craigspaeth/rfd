@@ -18,7 +18,6 @@ $(function() {
   bgImg.src = '/images/brick.jpg';
   bgImg.onload = function() {
     $('body').removeClass('body-init');
-    resizeHomeToViewport();
   }
 
   // Detect Safari 5
@@ -44,6 +43,7 @@ $(function() {
     $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
     $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
     setMacbookMargins();
+    resizeHomeToViewport();
   } else {
     
     // Clicking the hamburger shows the menu
@@ -54,7 +54,6 @@ $(function() {
       $('#header').toggle();
     });  
   }
-  resizeHomeToViewport();
 });
 
 // 
