@@ -145,8 +145,9 @@ $('#header nav a').click(function() {
 $('#home-up-arrow').click(function() {
   scrollToEl($('#home'));
 });
+
 //
-// Set the margin between the 
+// Set the margin between the macbook
 // 
 var setMacbookMargins = function() {
   macbookHeight = $('.web-left-frame').first().height();
@@ -178,7 +179,7 @@ $('#modal-close').click(closeModal);
 $(document).on('keyup', function(e) {
   if(e.which == 27) closeModal(); // ESC key
 });
-$('.two-divided-grid img').click(function() {
+$('.two-divided-grid img, .three-divided-grid img').click(function() {
   setModal($(this));
 });
 $('#photo-video img').click(function() {

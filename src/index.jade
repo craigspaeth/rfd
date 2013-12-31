@@ -27,11 +27,12 @@ mixin logo()
       span.home-l l
     h2 for design
 
-doctype 5
+doctype html
 html( lang="en" )
   head
     title Rachel Pigott | Design, Film, and Medicine.
-    include ./style.styl
+    style
+      include:stylus ./style.styl
     link( rel='icon', type='image/png', href='images/favicon.ico' )
     meta( name='viewport', content='width=device-width', initial-scale='1.0,user-scalable=no' )
   body.body-init
@@ -87,7 +88,7 @@ html( lang="en" )
       #medical
         mixin large-header( 'Rapaport & JTav', false )
         .white-bg
-          mixin web-container('David Rapaport, M.D. Website', 6, 'dr-web/', '', "Designed and created identity for Dr. David P. Rapaport, M.D. (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterheads, customized scrubs, water bottles and tote bags; set up all of Dr. Rapaport's social media accounts; as well as filmed and edited promotional videos for his YouTube channel.")
+          mixin web-container('David Rapaport, M.D. Website', 6, 'dr-web/', '', "Designed and created identity package for David P. Rapaport, MD (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterhead, customized scrubs, water bottles and tote bags; set up Dr. Rapaport's social media accounts as well as filmed and edited promotional videos for his YouTube channel.")
           h2.centered-header David Rapaport, M.D. Identity
           ul.two-divided-grid
             li.two-grid-wide
@@ -113,7 +114,7 @@ html( lang="en" )
               img( src="images/dr-identity/10.png" )
 
           //- Coolspa
-          mixin web-container('CoolSpa Fifth Avenue', 1, 'coolspa-web/', '', "Identity package and marketing for CoolSpa Fifth Avenue (founded by Dr. David P. Rapaport, a Harvard/NYU trained plastic surgeon) including: logo, website, and promotion material (including male and female patient brochures, advertisements that premiered in New York Magazine, event invitations, water bottles, tote bags, etc.).")
+          mixin web-container('CoolSpa Fifth Avenue', 1, 'coolspa-web/', '', "Identity package and marketing for CoolSpa Fifth Avenue (founded by Dr. David P. Rapaport, a Harvard/NYU trained plastic surgeon) including: logo, website, and promotional material (including male and female patient brochures, advertisements that premiered in New York Magazine, event invitations, water bottles, tote bags, etc.).")
           h2.centered-header CoolSpa Fifth Avenue Identity
           ul.two-divided-grid
             li.two-grid-wide
@@ -132,16 +133,19 @@ html( lang="en" )
               img( src="images/coolspa/b1.jpg" )
             li.two-grid-wide
               img( src="images/coolspa/b2.jpg" )
-          ul.two-divided-grid
-            li.two-grid-wide
-              img( src="images/coolspa/row.jpg" )
-              
+          ul.three-divided-grid
+            li
+              img( src="images/coolspa/ad1.jpg" )
+            li
+              img( src="images/coolspa/ad2.jpg" )
+            li
+              img( src="images/coolspa/ad3.jpg" )
             
-          mixin web-container('JTav Clinical Skincare Website', 6, 'jtav/', 'jtavclinicalskincare.com', "Designed and created website for Esthetician Joie Tavernise (JTav Clinical Skin Care); set up all of Joie's social media accounts; photographed Joie, her office and employees for website and promotional material; as well as filmed and edited a video to promote Joie's Ultherapy practice (for her website, Vimeo and YouTube channel).")
+          mixin web-container('JTav Clinical Skincare Website', 6, 'jtav/', 'jtavclinicalskincare.com', "Designed and created website for Esthetician, Joie Tavernise (JTav Clinical Skin Care); set up Joie's social media accounts; photographed Joie, employees, and office space for website and promotional material; filmed and edited video to promote Joie's Ultherapy practice (for her website, Vimeo account, and YouTube channel).")
       
-      //- Russel's Reserve
+      //- Russell's Reserve
       #russels-reserve
-        mixin large-header( "Russel's Reserve", false )
+        mixin large-header( "Russell's Reserve", false )
         .white-bg
           h2.centered-header Identity Concepts
           ul.two-divided-grid
@@ -214,4 +218,5 @@ html( lang="en" )
     #scripts
       script( src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" )
       script( src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" )
-      include ./main.js
+      script
+        include ./main.js
