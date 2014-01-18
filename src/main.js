@@ -4,7 +4,8 @@ var TOP_PADDING = 100,
     $window,
     $webcontainers,
     $largeheaders,
-    isIphone;
+    isIphone,
+    isIpad;
 
 $(function() {
   
@@ -36,25 +37,25 @@ $(function() {
 
   // Detect iPad
   if (navigator.userAgent.match('iPad')) {
+    isIpad = true
     $('html').addClass('ipad');
     $window.height = function() {
       return window.screen.height;
     }
   }
 
-  if(!isIphone) {
-
-    // Set scroll handlers
+  if(!isIpad && !isIphone) {
     $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
+    $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
+    setMacbookMargins();
+  }
+  if(!isIphone) {
     $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
     $window.on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
     $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
-    $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
-    setMacbookMargins();
     resizeHomeToViewport();
-  } else {
-    
-    // Clicking the hamburger shows the menu
+  }
+  if (isIphone) {
     $('#hamburger').click(function() {
       $('#header').toggle();
     });

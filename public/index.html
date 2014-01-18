@@ -712,14 +712,15 @@ html.ipad .web-right-copy {
   background: transparent;
   margin: 0 30px 30px 30px;
 }
-html.ipad .web-right-copy p {
-  font-size: 30px !important;
+html.ipad .web-right-copy p,
+html.ipad .web-right-copy a {
+  font-size: 24px !important;
   line-height: 1.4em !important;
 }
 html.ipad .web-right-copy h1 {
   text-align: center;
   margin-bottom: 30px;
-  font-size: 40px;
+  font-size: 36px;
 }
 html.ipad .web-container {
   position: relative;
@@ -730,7 +731,7 @@ html.ipad .web-left-frame {
 }
 html.ipad .web-images {
   width: 100%;
-  padding: 0;
+  padding: 0 !important;
 }
 html.ipad .web-images li {
   margin-top: 50px;
@@ -884,7 +885,8 @@ html.iphone #footer {
     $window,
     $webcontainers,
     $largeheaders,
-    isIphone;
+    isIphone,
+    isIpad;
 
 $(function() {
   
@@ -916,25 +918,25 @@ $(function() {
 
   // Detect iPad
   if (navigator.userAgent.match('iPad')) {
+    isIpad = true
     $('html').addClass('ipad');
     $window.height = function() {
       return window.screen.height;
     }
   }
 
-  if(!isIphone) {
-
-    // Set scroll handlers
+  if(!isIpad && !isIphone) {
     $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
+    $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
+    setMacbookMargins();
+  }
+  if(!isIphone) {
     $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
     $window.on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
     $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
-    $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
-    setMacbookMargins();
     resizeHomeToViewport();
-  } else {
-    
-    // Clicking the hamburger shows the menu
+  }
+  if (isIphone) {
     $('#hamburger').click(function() {
       $('#header').toggle();
     });
