@@ -34,6 +34,14 @@ $(function() {
     }
   }
 
+  // Detect iPad
+  if (navigator.userAgent.match('iPad')) {
+    $('html').addClass('ipad');
+    $window.height = function() {
+      return window.screen.height;
+    }
+  }
+
   if(!isIphone) {
 
     // Set scroll handlers
