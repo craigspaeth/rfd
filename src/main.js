@@ -173,12 +173,16 @@ var closeModal= function() {
 var setModal = function($img) {
   $('#modal-container img').attr('src', $img.attr('src'))
   $('#modal-container').fadeIn(200);
-  _.defer(function() {
+  var imgLoad = function() {
+    var tooTall = $('#modal-container img').height() > $(window).height();
+    var top = tooTall ? 0 : $('#modal-container img').height() / 2;
     $('#modal').css({
-      'margin-top': '-' + $('#modal-container img').height() / 2 + 'px',
-      top: '50%'
+      'margin-top': ('-' + top + 'px'),
+      top: (tooTall ? 0 : '50%')
     });
-  });
+  };
+  $('#modal-container img').on('load', imgLoad);
+  $('#modal-container img').on('error', imgLoad);
 }
 $('.web-overlay').click(function(e) {
   var $imgs = $(this).closest('.web-container').find('.web-images img'),
