@@ -27,6 +27,15 @@ mixin logo()
       span.home-l l
     h2 for design
 
+mixin slide-show(folder, ext, num)  
+  .slide-show
+    .slide-show-prev
+    ul
+      for n, i in new Array(num)
+        li( class=(i == 0 ? 'active' : '') )
+          img( src="images/" + folder + "/#{i + 1}." + ext )
+    .slide-show-next
+
 doctype html
 html( lang="en" )
   head
@@ -47,7 +56,7 @@ html( lang="en" )
           a( href='#campari' ) Campari
           a( href='#nofeedigs' ) NoFeeDigs
           a( href='#medical' ) Rapaport & JTav
-          a( href='#russels-reserve' ) Russell's Reserve
+          a( href='#graphic-design' ) Graphic Design
           a( href='#photo-video' ) Photo/Video
           a( href='#footer' ) Resume/Contact
 
@@ -78,11 +87,8 @@ html( lang="en" )
         mixin large-header( 'NoFeeDigs', false )
         .white-bg
           mixin web-container('NoFeeDigs Website', 3, 'nfd/', 'nofeedigs.com', "Co-founder of NoFeeDigs; instrumental in business, design and product development; created social media. Website (nofeedigs.com) designed to help people find no fee apartments in New York City.")
-          h2.centered-header NoFeeDigs Identity
-          ul.two-divided-grid
-            for n, i in new Array(6)
-              li
-                img( src="images/nfd-identity/#{i + 1}.png" )
+          h2.centered-header NoFeeDigs Identity 
+          mixin slide-show('nfd-identity', 'png', 6)
 
       //- Medical Design
       #medical
@@ -133,7 +139,7 @@ html( lang="en" )
               img( src="images/coolspa/b1.jpg" )
             li.two-grid-wide
               img( src="images/coolspa/b2.jpg" )
-          ul.three-divided-grid
+          ul.three-divided-grid( style='border-bottom: 1px solid #eee; padding-bottom: 100px' )
             li
               img( src="images/coolspa/ad1.jpg" )
             li
@@ -143,20 +149,20 @@ html( lang="en" )
 
           mixin web-container('JTav Clinical Skincare Website', 6, 'jtav/', 'jtavclinicalskincare.com', "Designed and created website for Esthetician, Joie Tavernise (JTav Clinical Skin Care); set up Joie's social media accounts; photographed Joie, employees, and office space for website and promotional material; filmed and edited video to promote Joie's Ultherapy practice (for her website, Vimeo account, and YouTube channel).")
 
-      //- Russell's Reserve
-      #russels-reserve
-        mixin large-header( "Russell's Reserve", false )
+      //- Graphic Design
+      #graphic-design
+        mixin large-header( "Graphic Design", false )
         .white-bg
-          h2.centered-header Identity Concepts
-          ul.two-divided-grid
-            li
-              img( src="images/rr/1.jpg" )
-            li
-              img( src="images/rr/2.jpg" )
-            li
-              img( src="images/rr/3.jpg" )
-            li
-              img( src="images/rr/4.jpg" )
+          h2.centered-header Russell's Reserve Identity Concepts
+          p.brief I was comissioned by design partners&nbsp;
+            a( href='http://pigottschaefer.com/', target='_blank' ) Pigott/Schaefer
+            |  to help with&nbsp;
+            br
+            | identity concepts
+            | to premiumize&nbsp;
+            em Rusell's Reserve.&nbsp;
+            br
+            | Below are some bottle designs and marketing concepts I created.
           ul.two-divided-grid
             li.two-grid-wide
               img( src="images/rr/6.jpg" )
@@ -165,15 +171,19 @@ html( lang="en" )
             li.two-grid-wide
               img( src="images/rr/9.jpg" )
             li.two-grid-wide
+              img( src="images/rr/bow-tie.png" )
+            li.two-grid-wide
               img( src="images/rr/10.jpg" )
             li.two-grid-wide
               img( src="images/rr/s1.jpg" )
+          h2.centered-header Assorted Logo & Graphic Design Work
+          mixin slide-show('logo', 'jpg', 11)
 
       //- Photo/Video
       #photo-video
         mixin large-header( "Photo/Video", false )
         .white-bg
-          h2.centered-header Assorted non-commerical Video and Photography Work
+          h2.centered-header( style='margin: 0 0 60px 0') Assorted non-commerical Video and Photography Work
           .pv-two
             img( src='pv/1.jpg', style='width: 38.28%; margin-bottom: -1px' )
             img( src='pv/3.jpg', style='width: 61.72%' )
