@@ -47,13 +47,13 @@ $(function() {
   if(!isIpad && !isIphone) {
     $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
     $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
-    setMacbookMargins();
+    _.defer(setMacbookMargins);
   }
   if(!isIphone) {
     $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
     $window.on('scroll', _.throttle(fadeInHeader, DEBOUNCE_INT));
     $window.on('resize', _.debounce(resizeHomeToViewport, DEBOUNCE_INT));
-    resizeHomeToViewport();
+    _.defer(resizeHomeToViewport);
   }
   if (isIphone) {
     $('#hamburger').click(function() {
@@ -171,7 +171,11 @@ var closeModal= function() {
   $('#modal-container').fadeOut(200);
 };
 var setModal = function($img) {
-  $('#modal-container img').attr('src', $img.attr('src'));
+  $('#modal-container img').attr('src', $img.attr('src'))
+  $('#modal').css({
+    'margin-top': '-' + $img.height() / 2 + 'px',
+    top: '50%'
+  });
   $('#modal-container').fadeIn(200);
 }
 $('.web-overlay').click(function(e) {
@@ -185,6 +189,7 @@ $('.web-overlay').click(function(e) {
   setModal($img);
 });
 $('#modal-close').click(closeModal);
+$('#modal-container').click(closeModal);
 $(document).on('keyup', function(e) {
   if(e.which == 27) closeModal(); // ESC key
 });
