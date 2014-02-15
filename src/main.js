@@ -172,11 +172,13 @@ var closeModal= function() {
 };
 var setModal = function($img) {
   $('#modal-container img').attr('src', $img.attr('src'))
-  $('#modal').css({
-    'margin-top': '-' + $img.height() / 2 + 'px',
-    top: '50%'
-  });
   $('#modal-container').fadeIn(200);
+  _.defer(function() {
+    $('#modal').css({
+      'margin-top': '-' + $('#modal-container img').height() / 2 + 'px',
+      top: '50%'
+    });
+  });
 }
 $('.web-overlay').click(function(e) {
   var $imgs = $(this).closest('.web-container').find('.web-images img'),
