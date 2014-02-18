@@ -63,7 +63,21 @@ $(function() {
       $('#header').toggle();
     });  
   }
+  $window.on('resize', _.debounce(centerLogos, DEBOUNCE_INT));
+  _.defer(centerLogos);
 });
+
+// 
+// Center slideshow logos
+// 
+var centerLogos = function() {
+  $('.slide-show li img').each(function() {
+    var center = function() {
+      $(this).css({ 'margin-top': -$(this).height() / 2, 'top': '50%' })
+    }
+    $(this).load(center).error(center);
+  });  
+}
 
 // 
 // Pop lock the macbook on scroll
