@@ -744,6 +744,15 @@ perc-off = 0
     background-size contain
     background-position top left
 
+html.firefox
+  #home-page-left, #home-page-right
+    a
+      color black
+      &:hover
+        color green-color
+        .home-page-bg
+          background-image none        
+
 @media (max-width: 600px)
   #home-page-right a, #home-page-left a
     padding 50px 40px

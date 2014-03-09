@@ -35,6 +35,11 @@ $(function() {
     }
   }
 
+  // Detect Firefox 
+  if (!!navigator.userAgent.match('Firefox')) {
+    $('html').addClass('firefox');
+  }
+
   // Detect iPad
   if (navigator.userAgent.match('iPad')) {
     isIpad = true
