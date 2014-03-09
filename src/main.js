@@ -75,8 +75,8 @@ $(function() {
   _.defer(function() {
     $('.pv-fillwidth').fillwidth({
       resizeRowBy: 2000,
-      resizeLandscapesBy: 10
-    });
+      resizeLandscapesBy: 2000
+    }).find('img').trigger('load');
   });
 });
 

@@ -12,9 +12,11 @@ html( lang="en" )
       #header
         nav
           a#home-icon.nav-active( href='/' ) RP
-          a( href='#nofeedigs' ) NoFeeDigs
-          a( href='#medical' ) Rapaport & JTav
           a( href='#graphic-design' ) Graphic Design
+          a( href='#nofeedigs' ) NoFeeDigs
+          a( href='#medical' ) Rapaport
+          a( href='#coolspa' ) CoolSpa
+          a( href='#jtav' ) JTav
           a( href='#footer' ) Resume/Contact
           a( href='/video' ) Video Portfolio
 
@@ -23,6 +25,29 @@ html( lang="en" )
         #home-header
           mixin logo('design')
         button#home-down-arrow
+
+      //- Graphic Design
+      section#graphic-design
+        mixin large-header( "Graphic Design", false )
+        .white-bg
+          h2.centered-header Russell's Reserve Identity Concepts
+          p.brief Commissioned by design partners&nbsp;
+            a( href='http://pigottschaefer.com/', target='_blank' ) Pigott/Schaefer
+            |  to help with identity concepts to premiumize Russell’s Reserve.
+            |  Below are some bottle designs and marketing concepts I created.
+          ul.two-divided-grid
+            li.two-grid-wide
+              img( src="images/rr/6.jpg" )
+            li.two-grid-wide
+              img( src="images/rr/bow-tie.png" )
+            li.two-grid-wide
+              img( src="images/rr/10.jpg" )
+            li.two-grid-wide
+              img( src="images/rr/s1.jpg" )
+          h2.centered-header Gant Men's Grooming Products Concept Designs
+          mixin slide-show('gant', 'jpg', 3)
+          h2.centered-header Assorted Logo & Graphic Design Work
+          mixin slide-show('logo', 'jpg', 12, ["Logo design for business that provides serviced apartment accommodation to both corporate and leisure guests","Logo design for skateboarding company in Salt Lake City, UT","Logo and skateboard design for skateboarding company in Salt Lake City, UT","Logo design for aftermarket auto parts dealer in Singapore","T-shirt design for startup company that sells guidance to other start-ups","Logo design for a new backyard beanbag-toss game company based in Saskatoon, Saskatchewan, Canada","Logo design for dairy company in Wisconsin","Logo design for artisan jewelry design company","Logo design for a health coaching company","Logo design for naturopathic clinic specializing in digestive health","Logo design for makeup brand that fills scars and deep pores","Logo design for children's ski company in Vail, Colorado"])
 
       //- No Fee Digs
       section#nofeedigs
@@ -34,7 +59,7 @@ html( lang="en" )
 
       //- Medical Design
       section#medical
-        mixin large-header( 'Rapaport & JTav', false )
+        mixin large-header( 'David Rapaport, M.D.', false )
         .white-bg
           mixin web-container('David Rapaport, M.D. Website', 6, 'dr-web/', '', "Designed and created identity package for David P. Rapaport, MD (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterhead, customized scrubs, water bottles and tote bags; set up Dr. Rapaport's social media accounts as well as filmed and edited promotional videos for his YouTube channel.")
           h2.centered-header David Rapaport, M.D. Identity
@@ -61,7 +86,10 @@ html( lang="en" )
             li
               img( src="images/dr-identity/10.png" )
 
-          //- Coolspa
+      //- Coolspa
+      section#coolspa
+        mixin large-header( 'CoolSpa Fifth Avenue', false )
+        .white-bg
           mixin web-container('CoolSpa Fifth Avenue', 1, 'coolspa-web/', '', "Identity package and marketing for CoolSpa Fifth Avenue (founded by Dr. David P. Rapaport, a Harvard/NYU trained plastic surgeon) including: logo, website, and promotional material (including male and female patient brochures, advertisements that premiered in New York Magazine, event invitations, water bottles, tote bags, etc.).")
           h2.centered-header CoolSpa Fifth Avenue Identity
           ul.two-divided-grid
@@ -89,30 +117,11 @@ html( lang="en" )
             li
               img( src="images/coolspa/ad3.jpg" )
 
-          mixin web-container('JTav Clinical Skincare Website', 6, 'jtav/', 'jtavclinicalskincare.com', "Designed and created website for Esthetician, Joie Tavernise (JTav Clinical Skin Care); set up Joie's social media accounts; photographed Joie, employees, and office space for website and promotional material; filmed and edited video to promote Joie's Ultherapy practice (for her website, Vimeo account, and YouTube channel).")
-
-      //- Graphic Design
-      section#graphic-design
-        mixin large-header( "Graphic Design", false )
+      //- JTav
+      section#jtav
+        mixin large-header( 'JTav Clinical Skin Care', false )
         .white-bg
-          h2.centered-header Russell's Reserve Identity Concepts
-          p.brief Commissioned by design partners&nbsp;
-            a( href='http://pigottschaefer.com/', target='_blank' ) Pigott/Schaefer
-            |  to help with identity concepts to premiumize Russell’s Reserve.
-            |  Below are some bottle designs and marketing concepts I created.
-          ul.two-divided-grid
-            li.two-grid-wide
-              img( src="images/rr/6.jpg" )
-            li.two-grid-wide
-              img( src="images/rr/bow-tie.png" )
-            li.two-grid-wide
-              img( src="images/rr/10.jpg" )
-            li.two-grid-wide
-              img( src="images/rr/s1.jpg" )
-          h2.centered-header Gant Men's Grooming Products Concept Designs
-          mixin slide-show('gant', 'jpg', 3)
-          h2.centered-header Assorted Logo & Graphic Design Work
-          mixin slide-show('logo', 'jpg', 12, ["Logo design for business that provides serviced apartment accommodation to both corporate and leisure guests","Logo design for skateboarding company in Salt Lake City, UT","Logo and skateboard design for skateboarding company in Salt Lake City, UT","Logo design for aftermarket auto parts dealer in Singapore","T-shirt design for startup company that sells guidance to other start-ups","Logo design for a new backyard beanbag-toss game company based in Saskatoon, Saskatchewan, Canada","Logo design for dairy company in Wisconsin","Logo design for artisan jewelry design company","Logo design for a health coaching company","Logo design for naturopathic clinic specializing in digestive health","Logo design for makeup brand that fills scars and deep pores","Logo design for children's ski company in Vail, Colorado"])
+          mixin web-container('JTav Clinical Skin Care Website', 6, 'jtav/', 'jtavclinicalskincare.com', "Designed and created website for Esthetician, Joie Tavernise (JTav Clinical Skin Care); set up Joie's social media accounts; photographed Joie, employees, and office space for website and promotional material; filmed and edited video to promote Joie's Ultherapy practice (for her website, Vimeo account, and YouTube channel).")
 
       //- Modal window
       section#modal-container
