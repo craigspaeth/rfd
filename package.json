@@ -9,12 +9,13 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "3.x"
-  },
-  "devDependencies": {
+    "express": "3.x",
     "stylus": "*",
     "jade": "*",
-    "nib": "*",
+    "nib": "*"
+  },
+  "devDependencies": {
+    
     "coffee-script": "*"
   }
 }
