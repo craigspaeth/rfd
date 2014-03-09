@@ -66,6 +66,9 @@ a, button
 img
   display block
 
+section
+  min-height 600px
+
 body.body-init
   &:before
     display block
@@ -128,6 +131,7 @@ body.body-init
     height 100px
 
 .logo
+  cursor pointer
   h2, h1
     bold()
     text-transform lowercase
@@ -142,6 +146,11 @@ body.body-init
   .home-r
   .home-l
     color green-color
+.video-portfolio .logo h2
+  font-size 28px
+  margin-left -4px
+.video-portfolio #footer .logo h2
+  font-size 23px
 
 #home-down-arrow, #home-up-arrow
   border 2px solid dark-gray
@@ -198,9 +207,9 @@ body.body-init
     width 505px
     position absolute
     top 50%
-    margin-top -100px
+    margin-top -60px
     left 50%
-    margin-left -250px
+    margin-left -260px
     z-index 2
     .video-play
       padding 25px
@@ -223,10 +232,20 @@ body.body-init
       text-align left
       line-height 1.8em
   .video-bg
-    background black
-    img
+    width 100%
+    height 100%
+    background center center no-repeat
+    background-size cover
+    position relative
+    &::after
+      content '.'
+      background black
       opacity 0.5
       width 100%
+      height 100%
+      position absolute
+      top 0
+      left 0
   .video-player
     width 100%
     height 100%
@@ -603,6 +622,12 @@ html.iphone
     top 100px !important
     left 0 !important
     margin 50px auto !important
+  .slide-show-caption
+    line-height 1.2em
+    font-size 18px
+    position relative
+    top 20px
+    padding 0px 80px
 
 .slide-show
   position relative
@@ -708,7 +733,7 @@ html.iphone
       color white
       .home-page-bg
         z-index 1
-        opacity 0.9
+        opacity 1
   .home-page-txt
     z-index 4
     position relative
@@ -721,6 +746,21 @@ html.iphone
     left 0
     position fixed
     z-index -1
+    &::before, &::after
+      content '.'
+      color transparent
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      z-index -1
+    &::before
+      background black
+      opacity 0.7
+    &::after
+      z-index 1
+      opacity 1
 
 perc-off = 0
 
@@ -730,9 +770,10 @@ perc-off = 0
   .home-page-bg
     mask-image url(images/bg-triangle-right.png)
     mask-size 100% 100%
-    background-image url(images/design-bg.jpg)
     background-size contain
-    background-position bottom right
+    &::after
+      background-image url(images/design-bg.jpg)
+      background-position bottom right
 
 #home-page-left a
   left perc-off
@@ -740,9 +781,10 @@ perc-off = 0
   .home-page-bg
     mask-image url(images/bg-triangle-left.png)
     mask-size 100% 100%
-    background-image url(images/video-bg.jpg)
     background-size contain
-    background-position top left
+    &::after
+      background-image url(images/video-bg.jpg)
+      background-position top left
 
 html.firefox
   #home-page-left, #home-page-right

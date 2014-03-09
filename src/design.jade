@@ -1,42 +1,4 @@
-mixin large-header(title, light)
-  h3.large-header
-    .large-header-box= title
-    .large-header-arrow-down( class=( light ? 'light-arrow' : '' ) )
-
-mixin web-container(title, len, imgPrefix, href, copy)
-  .web-container
-    .web-fg
-      .web-left-frame
-        .web-overlay
-        img.web-left-macbook( src='/images/macbook.png' )
-      .web-right-copy
-        h1= title
-        p= copy
-        if href.length
-          a.web-link( href='http://' + href, target='_blank' ) Visit website
-    ul.web-images
-      for n, i in new Array(len)
-        li
-          img( src="/images/#{imgPrefix}#{i + 1}.png" )
-
-mixin logo()
-  .logo
-    h1
-      span.home-r r
-      | ache
-      span.home-l l
-    h2 for design
-
-mixin slide-show(folder, ext, num, captions)  
-  .slide-show
-    .slide-show-prev
-    ul
-      for n, i in new Array(num)
-        li( class=(i == 0 ? 'active' : ''), style=captions ? 'padding: 25px 0' : '' )
-          img( src="images/" + folder + "/#{i + 1}." + ext )
-          if captions && captions[i]
-            .slide-show-caption= captions[i]
-    .slide-show-next
+include mixins
 
 doctype html
 html( lang="en" )
@@ -49,7 +11,7 @@ html( lang="en" )
       #hamburger &#9776;
       #header
         nav
-          a#home-icon.nav-active( href='#home' ) RP
+          a#home-icon.nav-active( href='/' ) RP
           a( href='#nofeedigs' ) NoFeeDigs
           a( href='#medical' ) Rapaport & JTav
           a( href='#graphic-design' ) Graphic Design
@@ -59,11 +21,11 @@ html( lang="en" )
       //- Homepage
       #home
         #home-header
-          mixin logo
+          mixin logo('design')
         button#home-down-arrow
 
       //- No Fee Digs
-      #nofeedigs
+      section#nofeedigs
         mixin large-header( 'NoFeeDigs', false )
         .white-bg
           mixin web-container('NoFeeDigs Website', 3, 'nfd/', 'nofeedigs.com', "Co-founder of NoFeeDigs; instrumental in business, design and product development; created social media. Website (nofeedigs.com) designed to help people find no fee apartments in New York City.")
@@ -71,7 +33,7 @@ html( lang="en" )
           mixin slide-show('nfd-identity', 'png', 6)
 
       //- Medical Design
-      #medical
+      section#medical
         mixin large-header( 'Rapaport & JTav', false )
         .white-bg
           mixin web-container('David Rapaport, M.D. Website', 6, 'dr-web/', '', "Designed and created identity package for David P. Rapaport, MD (Rapaport Plastic Surgery) including: logo, website, banners (for website and social media), business cards and letterhead, customized scrubs, water bottles and tote bags; set up Dr. Rapaport's social media accounts as well as filmed and edited promotional videos for his YouTube channel.")
@@ -130,7 +92,7 @@ html( lang="en" )
           mixin web-container('JTav Clinical Skincare Website', 6, 'jtav/', 'jtavclinicalskincare.com', "Designed and created website for Esthetician, Joie Tavernise (JTav Clinical Skin Care); set up Joie's social media accounts; photographed Joie, employees, and office space for website and promotional material; filmed and edited video to promote Joie's Ultherapy practice (for her website, Vimeo account, and YouTube channel).")
 
       //- Graphic Design
-      #graphic-design
+      section#graphic-design
         mixin large-header( "Graphic Design", false )
         .white-bg
           h2.centered-header Russell's Reserve Identity Concepts
@@ -153,13 +115,13 @@ html( lang="en" )
           mixin slide-show('logo', 'jpg', 12, ["Logo design for business that provides serviced apartment accommodation to both corporate and leisure guests","Logo design for skateboarding company in Salt Lake City, UT","Logo and skateboard design for skateboarding company in Salt Lake City, UT","Logo design for aftermarket auto parts dealer in Singapore","T-shirt design for startup company that sells guidance to other start-ups","Logo design for a new backyard beanbag-toss game company based in Saskatoon, Saskatchewan, Canada","Logo design for dairy company in Wisconsin","Logo design for artisan jewelry design company","Logo design for a health coaching company","Logo design for naturopathic clinic specializing in digestive health","Logo design for makeup brand that fills scars and deep pores","Logo design for children's ski company in Vail, Colorado"])
 
       //- Modal window
-      #modal-container
+      section#modal-container
         #modal-close
         #modal
           img( src='images/jtav/1.png' )
 
       //- Footer
-      #footer-container
+      section#footer-container
         #footer
           button#home-up-arrow
           a#download-resume( href='resume.pdf', _target='blank' ) Download Resume

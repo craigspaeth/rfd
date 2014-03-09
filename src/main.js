@@ -69,7 +69,9 @@ $(function() {
     });  
   }
   $window.on('resize', _.debounce(centerLogos, DEBOUNCE_INT));
+  $window.on('resize', _.debounce(resizeVideos, DEBOUNCE_INT));
   _.defer(centerLogos);
+  _.defer(resizeVideos);
 });
 
 // 
@@ -121,7 +123,9 @@ var relativeToEl = function(el) {
 // Clicking play runs the campari video
 // 
 $('.video-play').click(function(e) {
-  $(e.target).closest('.video').find('.video-player').show()[0].play()
+  var $video = $(e.target).closest('.video');
+  $video.find('.video-player').show()[0].play();
+  $('body, html').animate({ scrollTop: $video.offset().top - $('#header').height() });
 });
 
 // 
@@ -163,8 +167,8 @@ var fadeInHeader = function() {
 var scrollToEl = function($el) {
   $('html, body').animate({ scrollTop: $el.offset().top }, 1000);
 }
-$('#home-down-arrow').click(function() {
-  scrollToEl($('#campari'));
+$('#home-down-arrow, #home-header .logo').click(function() {
+  scrollToEl($('section').first());
 });
 $('#header nav a').click(function() {
   scrollToEl($($(this).attr('href')));
@@ -257,3 +261,11 @@ $(document).on('keydown', function(e) {
     $closestSlideshow.find('.slide-show-prev').click()
   }
 });
+
+// Resize video to be the height of the window
+var resizeVideos = function() {
+  var maxHeight = $(window).width() / (16 / 9);
+  var windowHeight = $(window).height() - $('#header').height();
+  var height = Math.round(Math.min(maxHeight, windowHeight));
+  $('.video').height(height);
+}

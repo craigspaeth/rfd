@@ -1,0 +1,52 @@
+mixin large-header(title, light)
+  h3.large-header
+    .large-header-box= title
+    .large-header-arrow-down( class=( light ? 'light-arrow' : '' ) )
+
+mixin web-container(title, len, imgPrefix, href, copy)
+  .web-container
+    .web-fg
+      .web-left-frame
+        .web-overlay
+        img.web-left-macbook( src='/images/macbook.png' )
+      .web-right-copy
+        h1= title
+        p= copy
+        if href.length
+          a.web-link( href='http://' + href, target='_blank' ) Visit website
+    ul.web-images
+      for n, i in new Array(len)
+        li
+          img( src="/images/#{imgPrefix}#{i + 1}.png" )
+
+mixin logo(type)
+  .logo
+    h1
+      span.home-r r
+      | ache
+      span.home-l l
+    h2 for #{type}
+
+mixin video(name, id, copy)
+  .video
+    .video-copy-container
+      p= copy
+      br
+      button.video-play
+    .video-bg( style="background-image: url(/images/#{name}.jpg)")
+    video.video-player( controls='controls' )
+      source( src="videos/#{name}.mp4", type='video/mp4' )
+      | Your browser doesn't support HTML5 video, please see this
+      a( href='https://vimeo.com/' + id ) on vimeo.
+      | .
+
+mixin slide-show(folder, ext, num, captions)  
+  .slide-show
+    .slide-show-prev
+    ul
+      for n, i in new Array(num)
+        li( class=(i == 0 ? 'active' : ''), style=captions ? 'padding: 25px 0' : '' )
+          img( src="images/" + folder + "/#{i + 1}." + ext )
+          if captions && captions[i]
+            .slide-show-caption= captions[i]
+    .slide-show-next

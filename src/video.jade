@@ -1,50 +1,9 @@
-mixin large-header(title, light)
-  h3.large-header
-    .large-header-box= title
-    .large-header-arrow-down( class=( light ? 'light-arrow' : '' ) )
-
-mixin web-container(title, len, imgPrefix, href, copy)
-  .web-container
-    .web-fg
-      .web-left-frame
-        .web-overlay
-        img.web-left-macbook( src='/images/macbook.png' )
-      .web-right-copy
-        h1= title
-        p= copy
-        if href.length
-          a.web-link( href='http://' + href, target='_blank' ) Visit website
-    ul.web-images
-      for n, i in new Array(len)
-        li
-          img( src="/images/#{imgPrefix}#{i + 1}.png" )
-
-mixin logo()
-  .logo
-    h1
-      span.home-r r
-      | ache
-      span.home-l l
-    h2 for video
-
-mixin video(name, id, copy)
-  .video
-    .video-copy-container
-      p= copy
-      br
-      button.video-play
-    .video-bg
-      img( src="/images/#{name}.jpg" )
-    video.video-player( controls='controls' )
-      source( src="videos/#{name}.mp4", type='video/mp4' )
-      | Your browser doesn't support HTML5 video, please see this
-      a( href='https://vimeo.com/' + id ) on vimeo.
-      | .
+include mixins
 
 doctype html
 html( lang="en" )
   include head
-  body.body-init
+  body.body-init.video-portfolio
 
     #container
 
@@ -52,7 +11,7 @@ html( lang="en" )
       #hamburger &#9776;
       #header
         nav
-          a#home-icon.nav-active( href='#home' ) RP
+          a#home-icon.nav-active( href='/' ) RP
           a( href='#campari' ) Campari
           a( href='#demo' ) Demo Reel
           a( href='#photo-video' ) Photo / Stills
@@ -60,37 +19,39 @@ html( lang="en" )
           a( href='/design' ) Design Portfolio
 
       //- Homepage
-      #home
+      #home.home
         #home-header
-          mixin logo
+          mixin logo('video')
         button#home-down-arrow
 
       //- Campari America
-      #campari
+      section#campari
         mixin large-header( 'Campari America', true )
         +video('campari', '72108093', 'Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..')
       
       //- Demo Reel
-      #demo
+      section#demo
         mixin large-header( 'Demo Reel', true )
         +video('reel', '72108093', ' Compilation of 35mm film, 16mm film, and HD video projects.')
 
       //- Photo/Video
-      #photo-video
+      section#photo-video
         mixin large-header( "Photo / Stills", false )
         .white-bg
-          .pv-two
-            img( src='pv/1.jpg', style='width: 38.28%; margin-bottom: -1px' )
-            img( src='pv/3.jpg', style='width: 61.72%' )
+          ul.pv-fillwidth
+            for n, i in new Array(37)
+              li
+                img( src='pv/#{i + 1}.jpg' )
+
 
       //- Modal window
-      #modal-container
+      section#modal-container
         #modal-close
         #modal
           img( src='images/jtav/1.png' )
 
       //- Footer
-      #footer-container
+      section#footer-container
         #footer
           button#home-up-arrow
           a#download-resume( href='resume.pdf', _target='blank' ) Download Resume
