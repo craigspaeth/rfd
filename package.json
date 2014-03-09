@@ -12,10 +12,7 @@
     "express": "3.x",
     "stylus": "*",
     "jade": "*",
-    "nib": "*"
-  },
-  "devDependencies": {
-    
+    "nib": "*",
     "coffee-script": "*"
   }
 }
