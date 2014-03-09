@@ -13,4 +13,4 @@ deploy:
 	git add .
 	git commit -a
 	git push git@heroku.com:rachelpigott.git master
-	open rachelpigott.com
+	open http://rachelpigott.com
