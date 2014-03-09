@@ -115,8 +115,8 @@ var relativeToEl = function(el) {
 //
 // Clicking play runs the campari video
 // 
-$('#campari-video-play').click(function() {
-  $('#campari-video-player').show()[0].play()
+$('.video-play').click(function(e) {
+  $(e.target).closest('.video').find('.video-player').show()[0].play()
 });
 
 // 

@@ -326,11 +326,11 @@ body.body-init #header {
 .large-header .large-header-arrow-down.light-arrow {
   border-top-color: rgba(35,35,35,0.85);
 }
-#campari-video {
+.video {
   position: relative;
   text-align: center;
 }
-#campari-video #campari-video-copy-container {
+.video .video-copy-container {
   width: 505px;
   position: absolute;
   top: 50%;
@@ -339,7 +339,7 @@ body.body-init #header {
   margin-left: -250px;
   z-index: 2;
 }
-#campari-video #campari-video-copy-container #campari-video-play {
+.video .video-copy-container .video-play {
   padding: 25px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
@@ -361,13 +361,13 @@ body.body-init #header {
   -ms-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
-#campari-video #campari-video-copy-container #campari-video-play:hover,
-#campari-video #campari-video-copy-container #campari-video-play:active {
+.video .video-copy-container .video-play:hover,
+.video .video-copy-container .video-play:active {
   opacity: 1;
   -ms-filter: none;
   filter: none;
 }
-#campari-video #campari-video-copy-container p {
+.video .video-copy-container p {
   color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -378,16 +378,16 @@ body.body-init #header {
   text-align: left;
   line-height: 1.8em;
 }
-#campari-video #campari-video-bg {
+.video .video-bg {
   background: #000;
 }
-#campari-video #campari-video-bg img {
+.video .video-bg img {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
   width: 100%;
 }
-#campari-video #campari-video-player {
+.video .video-player {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -705,7 +705,7 @@ body.body-init #header {
 html.safari5 #home-down-arrow {
   padding: 15px 20px !important;
 }
-html.safari5 #campari-video-play {
+html.safari5 .video-play {
   padding: 20px 26px !important;
 }
 html.ipad .web-fg {
@@ -834,7 +834,7 @@ html.iphone .web-images li:first-child {
   padding-top: 0;
   border-top: none;
 }
-html.iphone #campari-video-copy-container {
+html.iphone .video-copy-container {
   top: 20px !important;
   left: 20px !important;
   margin-top: 0 !important;
@@ -842,7 +842,7 @@ html.iphone #campari-video-copy-container {
   width: 100% !important;
   padding: 50px !important;
 }
-html.iphone #campari-video-player {
+html.iphone .video-player {
   opacity: 0 !important;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)" !important;
   filter: alpha(opacity=0) !important;
@@ -1122,8 +1122,8 @@ var relativeToEl = function(el) {
 //
 // Clicking play runs the campari video
 // 
-$('#campari-video-play').click(function() {
-  $('#campari-video-player').show()[0].play()
+$('.video-play').click(function() {
+  $('.video-player').show()[0].play()
 });
 
 // 

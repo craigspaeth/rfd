@@ -21,6 +21,15 @@ cursor-zoom()
   cursor -webkit-zoom-in
   cursor -moze-zoom-in
 
+mask-repeat()
+  vendor('mask-repeat', arguments)
+
+mask-size()
+  vendor('mask-size', arguments)
+
+mask-image()
+  vendor('mask-image', arguments)
+
 html, body
   height 100%
 #container
@@ -182,10 +191,10 @@ body.body-init
     &.light-arrow
       border-top-color rgba(35,35,35,0.85)
 
-#campari-video
+.video
   position relative
   text-align center
-  #campari-video-copy-container
+  .video-copy-container
     width 505px
     position absolute
     top 50%
@@ -193,7 +202,7 @@ body.body-init
     left 50%
     margin-left -250px
     z-index 2
-    #campari-video-play
+    .video-play
       padding 25px
       border-radius @padding * 2
       border 2px solid white
@@ -213,12 +222,12 @@ body.body-init
       display inline-block
       text-align left
       line-height 1.8em
-  #campari-video-bg
+  .video-bg
     background black
     img
       opacity 0.5
       width 100%
-  #campari-video-player
+  .video-player
     width 100%
     height 100%
     position absolute
@@ -439,7 +448,7 @@ body.body-init
 html.safari5
   #home-down-arrow
     padding 15px 20px !important
-  #campari-video-play
+  .video-play
     padding 20px 26px !important
 
 
@@ -545,14 +554,14 @@ html.iphone
         margin-top 0
         padding-top 0
         border-top none
-  #campari-video-copy-container
+  .video-copy-container
     top 20px !important
     left 20px !important
     margin-top 0 !important
     margin-left 0 !important
     width 100% !important
     padding 50px !important
-  #campari-video-player
+  .video-player
     opacity 0 !important
   #photo-video
     .pv-two
@@ -680,7 +689,7 @@ html.iphone
     padding 30px 35px
     padding-right 24px
     border 4px solid
-    background white
+    background #fcfcfc
 
 #home-page-right, #home-page-left
   a
@@ -698,7 +707,7 @@ html.iphone
       color white
       .home-page-bg
         z-index 1
-        opacity 0.85
+        opacity 0.9
   .home-page-txt
     z-index 4
     position relative
@@ -706,7 +715,6 @@ html.iphone
   .home-page-bg
     width 100%
     height 100%
-    background-size 100% 100%
     opacity 0
     top 0
     left 0
@@ -719,13 +727,21 @@ perc-off = 0
   right perc-off
   bottom @right
   .home-page-bg
-    background-image url(images/bg-triangle-right.png)
+    mask-image url(images/bg-triangle-right.png)
+    mask-size 100% 100%
+    background-image url(images/design-bg.jpg)
+    background-size contain
+    background-position bottom right
 
 #home-page-left a
   left perc-off
   top @left
   .home-page-bg
-    background-image url(images/bg-triangle-left.png)
+    mask-image url(images/bg-triangle-left.png)
+    mask-size 100% 100%
+    background-image url(images/video-bg.jpg)
+    background-size contain
+    background-position top left
 
 @media (max-width: 600px)
   #home-page-right a, #home-page-left a

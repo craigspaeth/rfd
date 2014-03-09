@@ -27,16 +27,19 @@ mixin logo()
       span.home-l l
     h2 for video
 
-mixin slide-show(folder, ext, num, captions)  
-  .slide-show
-    .slide-show-prev
-    ul
-      for n, i in new Array(num)
-        li( class=(i == 0 ? 'active' : ''), style=captions ? 'padding: 25px 0' : '' )
-          img( src="images/" + folder + "/#{i + 1}." + ext )
-          if captions && captions[i]
-            .slide-show-caption= captions[i]
-    .slide-show-next
+mixin video(name, id, copy)
+  .video
+    .video-copy-container
+      p= copy
+      br
+      button.video-play
+    .video-bg
+      img( src="/images/#{name}.jpg" )
+    video.video-player( controls='controls' )
+      source( src="videos/#{name}.mp4", type='video/mp4' )
+      | Your browser doesn't support HTML5 video, please see this
+      a( href='https://vimeo.com/' + id ) on vimeo.
+      | .
 
 doctype html
 html( lang="en" )
@@ -51,6 +54,7 @@ html( lang="en" )
         nav
           a#home-icon.nav-active( href='#home' ) RP
           a( href='#campari' ) Campari
+          a( href='#demo' ) Demo Reel
           a( href='#photo-video' ) Photo / Stills
           a( href='#footer' ) Resume/Contact
           a( href='/design' ) Design Portfolio
@@ -64,17 +68,12 @@ html( lang="en" )
       //- Campari America
       #campari
         mixin large-header( 'Campari America', true )
-        #campari-video
-          #campari-video-copy-container
-            p Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..
-            button#campari-video-play
-          #campari-video-bg
-            img( src='/images/campari.jpg' )
-          video#campari-video-player( controls='controls' )
-            source( src='videos/campari.mp4', type='video/mp4' )
-            | Your browser doesn't support HTML5 video, please see this
-            a( href='https://vimeo.com/72108093' ) on vimeo.
-            | .
+        +video('campari', '72108093', 'Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..')
+      
+      //- Demo Reel
+      #demo
+        mixin large-header( 'Demo Reel', true )
+        +video('reel', '72108093', ' Compilation of 35mm film, 16mm film, and HD video projects.')
 
       //- Photo/Video
       #photo-video
