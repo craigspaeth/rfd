@@ -39,8 +39,8 @@ html( lang="en" )
         mixin large-header( "Photo / Stills", false )
         .white-bg
           ul.pv-fillwidth
-            for n, i in new Array(37)
-              li
+            for n, i in new Array(29)
+              li( style="background-image: url(pv/#{i + 1}.jpg)" )
                 img( src='pv/#{i + 1}.jpg' )
 
 

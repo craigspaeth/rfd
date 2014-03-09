@@ -72,7 +72,12 @@ $(function() {
   $window.on('resize', _.debounce(resizeVideos, DEBOUNCE_INT));
   _.defer(centerLogos);
   _.defer(resizeVideos);
-  $('.pv-fillwidth').fillwidth()
+  _.defer(function() {
+    $('.pv-fillwidth').fillwidth({
+      resizeRowBy: 2000,
+      resizeLandscapesBy: 10
+    }).find('img').trigger('load');
+  });
 });
 
 // 
