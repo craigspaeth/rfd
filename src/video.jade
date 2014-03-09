@@ -1,0 +1,121 @@
+mixin large-header(title, light)
+  h3.large-header
+    .large-header-box= title
+    .large-header-arrow-down( class=( light ? 'light-arrow' : '' ) )
+
+mixin web-container(title, len, imgPrefix, href, copy)
+  .web-container
+    .web-fg
+      .web-left-frame
+        .web-overlay
+        img.web-left-macbook( src='/images/macbook.png' )
+      .web-right-copy
+        h1= title
+        p= copy
+        if href.length
+          a.web-link( href='http://' + href, target='_blank' ) Visit website
+    ul.web-images
+      for n, i in new Array(len)
+        li
+          img( src="/images/#{imgPrefix}#{i + 1}.png" )
+
+mixin logo()
+  .logo
+    h1
+      span.home-r r
+      | ache
+      span.home-l l
+    h2 for video
+
+mixin slide-show(folder, ext, num, captions)  
+  .slide-show
+    .slide-show-prev
+    ul
+      for n, i in new Array(num)
+        li( class=(i == 0 ? 'active' : ''), style=captions ? 'padding: 25px 0' : '' )
+          img( src="images/" + folder + "/#{i + 1}." + ext )
+          if captions && captions[i]
+            .slide-show-caption= captions[i]
+    .slide-show-next
+
+doctype html
+html( lang="en" )
+  include head
+  body.body-init
+
+    #container
+
+      //- Sticky Header
+      #hamburger &#9776;
+      #header
+        nav
+          a#home-icon.nav-active( href='#home' ) RP
+          a( href='#campari' ) Campari
+          a( href='#photo-video' ) Photo / Stills
+          a( href='#footer' ) Resume/Contact
+          a( href='/design' ) Design Portfolio
+
+      //- Homepage
+      #home
+        #home-header
+          mixin logo
+        button#home-down-arrow
+
+      //- Campari America
+      #campari
+        mixin large-header( 'Campari America', true )
+        #campari-video
+          #campari-video-copy-container
+            p Freelance Creative Director and Editor. Video created for Campari America to promote Campari’s major brands: SKYY Vodka, Wild Turkey Bourbon, etc..
+            button#campari-video-play
+          #campari-video-bg
+            img( src='/images/campari.jpg' )
+          video#campari-video-player( controls='controls' )
+            source( src='videos/campari.mp4', type='video/mp4' )
+            | Your browser doesn't support HTML5 video, please see this
+            a( href='https://vimeo.com/72108093' ) on vimeo.
+            | .
+
+      //- Photo/Video
+      #photo-video
+        mixin large-header( "Photo / Stills", false )
+        .white-bg
+          .pv-two
+            img( src='pv/1.jpg', style='width: 38.28%; margin-bottom: -1px' )
+            img( src='pv/3.jpg', style='width: 61.72%' )
+
+      //- Modal window
+      #modal-container
+        #modal-close
+        #modal
+          img( src='images/jtav/1.png' )
+
+      //- Footer
+      #footer-container
+        #footer
+          button#home-up-arrow
+          a#download-resume( href='resume.pdf', _target='blank' ) Download Resume
+          #contact-box
+            .contact-box-left
+              | L
+              br
+              | T
+              br
+              | E
+            .contact-box-right
+              | New York, NY
+              br
+              | 801 870 5285
+              br
+              a( href='mailto:racheltpigott@gmail.com' ) racheltpigott@gmail.com
+            ul.contact-box-social-media
+              li.twitter
+              li.facebook
+              li.instagram
+          mixin logo
+
+    #scripts
+      script( src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" )
+      script( src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" )
+      script
+        include ./main.js

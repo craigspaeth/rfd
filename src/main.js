@@ -133,7 +133,7 @@ var highlightNav = function() {
   $('#header nav a').removeClass('nav-active');
   if (($window.height() + $window.scrollTop() >= $(document).height())
       || ($window.scrollTop() + 220 > $("#footer").offset().top)) {
-    $('#header nav a:last-child').addClass('nav-active');
+    $('#header nav a:last-child').prev().addClass('nav-active');
   } else {
     $largeheaders.each(function(i) {
       if (relativeToEl(this) == 'between' || relativeToEl(this) == 'past' && !$('.nav-active').length) {

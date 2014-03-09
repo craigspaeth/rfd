@@ -21,6 +21,11 @@ cursor-zoom()
   cursor -webkit-zoom-in
   cursor -moze-zoom-in
 
+html, body
+  height 100%
+#container
+  min-height 100%
+
 body, #header, .web-container.web-fixed .web-fg
   min-width 1020px
 
@@ -91,6 +96,9 @@ body.body-init
         padding-left 17px
       &.nav-active
         color green-color
+      &:last-child
+        border-left 1px solid #555
+        padding-left 17px
     #home-icon
       color #eee
       border-right 1px solid #555
@@ -654,3 +662,88 @@ html.iphone
   margin 50px auto 100px auto
   font-size 16px
   line-height 1.7em
+
+#home-page-h
+  font-weight bold
+  text-transform uppercase
+  position absolute
+  top 50%
+  margin-top -54px
+  font-size 22px
+  letter-spacing 10px
+  display block
+  z-index 10
+  text-align center
+  width 100%
+  h1
+    display inline-block
+    padding 30px 35px
+    padding-right 24px
+    border 4px solid
+    background white
+
+#home-page-right, #home-page-left
+  a
+    text-transform uppercase
+    font-weight bold
+    letter-spacing 20px
+    text-decoration none
+    position absolute
+    font-size 40px
+    text-align center
+    color rgba(0,0,0,0.8)
+    padding 14% 12%
+    cursor pointer
+    &:hover, &:active
+      color white
+      .home-page-bg
+        z-index 1
+        opacity 0.85
+  .home-page-txt
+    z-index 4
+    position relative
+    transition color 0s
+  .home-page-bg
+    width 100%
+    height 100%
+    background-size 100% 100%
+    opacity 0
+    top 0
+    left 0
+    position fixed
+    z-index -1
+
+perc-off = 0
+
+#home-page-right a
+  right perc-off
+  bottom @right
+  .home-page-bg
+    background-image url(images/bg-triangle-right.png)
+
+#home-page-left a
+  left perc-off
+  top @left
+  .home-page-bg
+    background-image url(images/bg-triangle-left.png)
+
+@media (max-width: 600px)
+  #home-page-right a, #home-page-left a
+    padding 50px 40px
+    letter-spacing 10px
+    font-size 24px
+  #home-page-h h1
+    padding 15px 25px
+    font-size 12px
+    letter-spacing 4px
+  #home-page-h
+    margin-top -30px
+
+#home-page-line
+  background url(images/bg-triangle-line.png)
+  background-size 100% 100%
+  width 100%
+  height 100%
+  position fixed
+  top 0
+  left 0

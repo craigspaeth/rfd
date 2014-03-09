@@ -1,18 +1,19 @@
 var express = require('express'),
-    fs = require('fs');
+    fs = require('fs'),
+    port = process.env.PORT || 4000,
+    app = express();
 
-var port = process.env.PORT || 4000;
-
-var app = express();
-if ('development' == app.get('env')) {
-  app.get('/', function(req, res, next) {
-    var jade = require('jade'),
-      filename = __dirname + '/src/index.jade';
-    var html = jade.compile(fs.readFileSync(filename), { filename: filename })();
-    fs.writeFileSync(__dirname + '/public/index.html', html);
-    next();
-  });
-}
+app.set('views', __dirname + '/src');
+app.set('view engine', 'jade');
+app.get('/', function(req, res) {
+  res.render('index');
+});
+app.get('/design', function(req, res) {
+  res.render('design');
+});
+app.get('/video', function(req, res) {
+  res.render('video');
+});
 app.use(express.static(__dirname + '/public'));
 app.use(express.favicon(__dirname + "/public/images/favicon.ico")); 
 app.listen(port, function() {
