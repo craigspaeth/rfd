@@ -72,6 +72,7 @@ $(function() {
   $window.on('resize', _.debounce(resizeVideos, DEBOUNCE_INT));
   _.defer(centerLogos);
   _.defer(resizeVideos);
+  $('.pv-fillwidth').fillwidth()
 });
 
 // 
