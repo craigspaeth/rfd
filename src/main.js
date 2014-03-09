@@ -76,7 +76,7 @@ $(function() {
     $('.pv-fillwidth').fillwidth({
       resizeRowBy: 2000,
       resizeLandscapesBy: 10
-    }).find('img').trigger('load');
+    });
   });
 });
 
