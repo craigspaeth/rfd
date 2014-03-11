@@ -38,8 +38,8 @@ html( lang="en" )
       section#photo-video
         mixin large-header( "Photo / Stills", false )
         .white-bg
-          ul.pv-fillwidth
-            for n, i in new Array(29)
+          ul.pv-two-column
+            for n, i in new Array(20)
               li( style="background-image: url(pv/#{i + 1}.jpg)" )
                 img( src='pv/#{i + 1}.jpg' )
 
