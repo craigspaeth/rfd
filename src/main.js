@@ -73,7 +73,7 @@ $(function() {
   $window.on('resize', _.debounce(cropPhotoColumns, DEBOUNCE_INT));
   _.defer(centerLogos);
   _.defer(resizeVideos);
-  _.defer(cropPhotoColumns);
+  imagesLoaded($('.pv-columns'), cropPhotoColumns);
 });
 
 // 
