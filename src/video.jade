@@ -39,7 +39,7 @@ html( lang="en" )
         mixin large-header( "Photo / Stills", false )
         .white-bg
           ul.pv-two-column
-            for n, i in new Array(20)
+            for n, i in new Array(19)
               li( style="background-image: url(pv/#{i + 1}.jpg)" )
                 img( src='pv/#{i + 1}.jpg' )
 
@@ -72,6 +72,6 @@ html( lang="en" )
               li.twitter
               li.facebook
               li.instagram
-          mixin logo
+          mixin logo('video')
 
     include scripts
