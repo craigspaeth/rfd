@@ -70,8 +70,10 @@ $(function() {
   }
   $window.on('resize', _.debounce(centerLogos, DEBOUNCE_INT));
   $window.on('resize', _.debounce(resizeVideos, DEBOUNCE_INT));
+  $window.on('resize', _.debounce(cropPhotoColumns, DEBOUNCE_INT));
   _.defer(centerLogos);
   _.defer(resizeVideos);
+  _.defer(cropPhotoColumns);
 });
 
 // 
@@ -268,4 +270,14 @@ var resizeVideos = function() {
   var windowHeight = $(window).height() - $('#header').height();
   var height = Math.round(Math.min(maxHeight, windowHeight));
   $('.video').height(height);
+}
+
+// Crop off the photos column so that the bottom of the image lines up
+// horizontally with the image next to it.
+var cropPhotoColumns = function() {
+  $('.pv-column').height('auto');
+  _.defer(function() {
+    var height = _.min($('.pv-column').map(function() { return $(this).height() }));
+    $('.pv-column').height(height);
+  });
 }

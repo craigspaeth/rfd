@@ -38,10 +38,17 @@ html( lang="en" )
       section#photo-video
         mixin large-header( "Photo / Stills", false )
         .white-bg
-          ul.pv-two-column
-            for n, i in new Array(19)
-              li( style="background-image: url(pv/#{i + 1}.jpg)" )
-                img( src='pv/#{i + 1}.jpg' )
+          .pv-columns
+            - num = 19
+            - first = Math.ceil(num / 2) - 1
+            ul.pv-column
+              for n, i in new Array(first)
+                li( style="background-image: url(pv/#{i + 1}.jpg)" )
+                  img( src='pv/#{i + 1}.jpg' )
+            ul.pv-column
+              for n, i in new Array(num - first)
+                li( style="background-image: url(pv/#{i + 1 + first}.jpg)" )
+                  img( src='pv/#{i + 1 + first}.jpg' )
 
 
       //- Modal window
