@@ -34,6 +34,8 @@ html, body
   height 100%
 #container
   min-height 100%
+section
+  opacity 0.9999
 
 body, #header, .web-container.web-fixed .web-fg
   min-width 1020px
@@ -825,3 +827,25 @@ html.firefox
   overflow hidden
   img
     width 100%
+
+.video-link
+  position absolute
+  width 100%
+  top 50%
+  a
+    color white
+    background transparent
+    border 0
+    border-bottom 1px solid
+    text-transform uppercase
+    font-weight bold
+    font-size 11px
+    padding 0 0 2px 0
+    letter-spacing 3px
+    cursor pointer
+    opacity 0.8
+    transition opacity 0.3s
+    display inline-block
+    text-decoration none
+    &:hover, &:active
+      opacity 1
