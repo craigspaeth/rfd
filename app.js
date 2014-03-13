@@ -17,12 +17,6 @@ app.get('/', function(req, res) {
       res.render('index');
   }
 });
-app.get('/design', function(req, res) {
-  res.render('design');
-});
-app.get('/video', function(req, res) {
-  res.render('video');
-});
 app.use(express.static(__dirname + '/public'));
 app.use(express.favicon(__dirname + "/public/images/favicon.ico")); 
 app.listen(port, function() {
