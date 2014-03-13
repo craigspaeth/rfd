@@ -53,6 +53,7 @@ $(function() {
     $window.on('scroll', _.throttle(popLockMacbook, DEBOUNCE_INT / 2));
     $window.on('resize', _.debounce(setMacbookMargins, DEBOUNCE_INT));
     _.defer(setMacbookMargins);
+    imagesLoaded($('section'), setMacbookMargins);
   }
   if(!isIphone) {
     $window.on('scroll', _.throttle(highlightNav, DEBOUNCE_INT));
