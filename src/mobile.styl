@@ -1,0 +1,168 @@
+// 
+// iPhone
+// 
+#hamburger
+  display none
+html.iphone
+  .logo
+    h2
+      margin-top 0
+  #footer .logo h2
+    margin-top -10px
+  .slide-show-next, .slide-show-prev
+    width 80px
+  .slide-show
+    height 300px
+  #hamburger
+    display block
+    width 80px
+    height 80px
+    position fixed
+    top 0
+    left 0
+    background black
+    border-radius 1000px
+    color white
+    margin 10px
+    font-size 40px !important
+    text-align center
+    line-height 80px
+    z-index 10
+  #header a:last-child
+    border-left 0
+  body, #header, .web-container.web-fixed .web-fg
+    min-width 0 !important
+    width 800px
+  body
+    font-size 30px !important
+  .web-fg
+    border none !important
+    position relative !important
+  .web-right-copy
+    float none
+    width 100%
+    background transparent
+    margin 0 30px 30px 30px
+    p
+      font-size 30px !important
+      line-height 1.4em !important
+    h1
+      text-align center
+      margin-bottom 30px
+      font-size 40px
+  .web-container
+    position relative
+    margin-bottom 50px
+  .web-left-frame
+    display none !important
+  .web-images
+    width 100%
+    padding 0
+    li
+      margin-top 50px
+      padding-top @margin-top
+      border-top 1px solid #ccc
+      &:first-child
+        margin-top 0
+        padding-top 0
+        border-top none
+  .video
+    background black !important
+    width 100% !important
+    height 600px !important
+  .video-link
+    top 65%
+  #photo-video
+    .pv-two
+      background transparent
+    img, video
+      width 100% !important
+      display block
+      margin 30px 0
+    video
+      height 400px !important
+  #header
+    display none
+    opacity 1 !important
+    background rgba(0,0,0,0.9)
+    #home-icon
+      display none
+    nav 
+      padding 5px 20px 20px 120px
+      a
+        font-size 40px !important
+        display block
+        padding 30px 0
+        color white
+        &:first-child
+          padding-top 0
+  .contact-box-left
+    width 15px
+  #footer-container
+    height 1000px
+    padding 50px 0
+  #home
+    min-height 400px
+  #home-down-arrow
+    display none
+  #footer
+    width 600px
+    position relative
+    top 100px !important
+    left 0 !important
+    margin 50px auto !important
+  .slide-show-caption
+    line-height 1.2em
+    font-size 18px
+    position relative
+    top 20px
+    padding 0px 80px
+  .brief
+    margin 0 0 60px 0!important
+    width auto
+  .pv-column
+    width 100%
+    li, img
+      margin 0
+      display block
+
+// 
+// iPad
+// 
+html.ipad
+  .web-fg
+    border none !important
+    position relative !important
+  .web-right-copy p, .web-right-copy a, .brief
+    font-size 24px !important
+    line-height 1.4em !important
+  .web-right-copy h1, .centered-header
+    text-align center
+    margin-bottom 30px
+    font-size 28px
+  .web-right-copy
+    float none
+    width 100%
+    background transparent
+    margin 0 45px 45px 45px
+  .web-container
+    position relative
+    margin-bottom 50px
+  .web-left-frame
+    display none !important
+  .web-images
+    width 100%
+    padding 0 !important
+    li
+      margin-top 50px
+      padding-top @margin-top
+      border-top 1px solid #ccc
+      &:first-child
+        margin-top 0
+        padding-top 0
+        border-top none
+  #photo-video video
+    display none !important
+  .brief
+    margin 0px !important
+    width auto !important

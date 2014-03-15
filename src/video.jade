@@ -14,6 +14,7 @@ html( lang="en" )
           a#home-icon.nav-active( href='/' ) RP
           a( href='#campari' ) Campari
           a( href='#demo' ) Demo Reel
+          a( href='#film-credits' ) Film Credits
           a( href='#photo-video' ) Photo / Stills
           a( href='#footer' ) Resume/Contact
           a( href='/design' ) Design Portfolio
@@ -35,6 +36,12 @@ html( lang="en" )
       section#demo
         mixin large-header( 'Demo Reel', true )
         +video('reel', '72108093', ' Compilation of 35mm film, 16mm film, and HD video projects.')
+
+      //- Film Credits
+      section#film-credits
+        mixin large-header( 'Film Credits', false )
+        .white-bg
+          mixin slide-show('film-credits', 'jpg', 5, filmCaptions)
 
       //- Photo/Video
       section#photo-video
