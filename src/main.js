@@ -44,6 +44,7 @@ $(function() {
   if (navigator.userAgent.match('iPad')) {
     isIpad = true
     $('html').addClass('ipad');
+    if (navigator.userAgent.match('Version/6.0')) $('html').addClass('ios6');
     $window.height = function() {
       return window.screen.height;
     }
