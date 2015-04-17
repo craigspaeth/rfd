@@ -12,5 +12,6 @@ pv:
 deploy:
 	git add .
 	git commit -a
+	git push origin master
 	git push git@heroku.com:rachelpigott.git master
 	open http://rachelpigott.com
